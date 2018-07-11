@@ -1,0 +1,32 @@
+# Created by .ignore support plugin (hsz.mobi)
+### JetBrains
+.idea
+
+# CMake
+cmake-build-debug/
+cmake-build-release/
+
+# File-based project format
+*.iws
+
+### Python
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*$py.class
+
+# C extensions
+*.so
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+*.h5
+*.parquet
+*.csv
+*.png
+admin
+*.log
+*.cfg
+*.html
+00_resources
+resources

@@ -28,7 +28,6 @@ TRADING_DAYS = 252
 #     print(prices.info())
 
 
-
 with pd.HDFStore('mv.h5') as store:
     factor = store.get('factor').loc['2016':]
     prices = store.get('prices').loc['2010': '2015']
@@ -51,12 +50,6 @@ returns = prices.loc[:, assets].pct_change()
 x0 = np.full(n_assets, 1 / n_assets)
 mean_asset_ret = returns.mean()
 asset_cov = returns.cov()
-
-from sympy import symbols, solve, log, diff
-share, odds, probability = symbols('share odds probability')
-Value = probability * log(1 + odds * share) + (1 - probability) * log(1 - share)
-solve(diff(Value, share), share)
-[(odds*probability + probability - 1)/odds]
 
 
 def pf_vol(weights, cov):
