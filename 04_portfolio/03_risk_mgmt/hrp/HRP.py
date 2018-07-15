@@ -1,118 +1,110 @@
-# On 20151227 by MLdP <lopezdeprado@lbl.gov>
-# Hierarchical Risk Parity
-import matplotlib.pyplot as mpl
-import scipy.cluster.hierarchy as sch, random, numpy as np, pandas as pd
+import random
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from scipy.cluster.hierarchy import linkage
+from scipy.spatial.distance import pdist, squareform
+
+np.random.seed(42)
 
 
-def getIVP(cov, **kargs):
-    # Compute the inverse-variance portfolio
-    ivp = 1. / np.diag(cov)
-    ivp /= ivp.sum()
-    return ivp
+def get_distance_matrix(corr):
+    """Compute distance matrix from correlation;
+        0 <= d[i,j] <= 1"""
+    return np.sqrt((1 - corr) / 2)
 
 
-def getClusterVar(cov, cItems):
-    # Compute variance per cluster
-    cov_ = cov.loc[cItems, cItems]  # matrix slice
-    w_ = getIVP(cov_).reshape(-1, 1)
-    cVar = np.dot(np.dot(w_.T, cov_), w_)[0, 0]
-    return cVar
-
-
-def getQuasiDiag(link):
-    # Sort clustered items by distance
+def quasi_diagonalize(link):
+    """sort clustered assets by distance"""
     link = link.astype(int)
-    sortIx = pd.Series([link[-1, 0], link[-1, 1]])
-    numItems = link[-1, 3]  # number of original items
-    while sortIx.max() >= numItems:
-        sortIx.index = list(range(0, sortIx.shape[0] * 2, 2))  # make space
-        df0 = sortIx[sortIx >= numItems]  # find clusters
-        i = df0.index;
-        j = df0.values - numItems
-        sortIx[i] = link[j, 0]  # item 1
+    sort_idx = pd.Series([link[-1, 0], link[-1, 1]])
+    num_items = link[-1, 3]  # idx of original items
+    while sort_idx.max() >= num_items:
+        sort_idx.index = list(range(0, sort_idx.shape[0] * 2, 2))  # make space
+        df0 = sort_idx[sort_idx >= num_items]  # find clusters
+        i = df0.index
+        j = df0.values - num_items
+        sort_idx[i] = link[j, 0]  # item 1
         df0 = pd.Series(link[j, 1], index=i + 1)
-        sortIx = sortIx.append(df0)  # item 2
-        sortIx = sortIx.sort_index()  # re-sort
-        sortIx.index = list(range(sortIx.shape[0]))  # re-index
-    return sortIx.tolist()
+        sort_idx = sort_idx.append(df0)  # item 2
+        sort_idx = sort_idx.sort_index()  # re-sort
+        sort_idx.index = list(range(sort_idx.shape[0]))  # re-index
+    return sort_idx.tolist()
 
 
-def getRecBipart(cov, sortIx):
-    # Compute HRP alloc
-    w = pd.Series(1, index=sortIx)
-    cItems = [sortIx]  # initialize all items in one cluster
-    print(cItems)
-    while len(cItems) > 0:
-        cItems = [i[j:k] for i in cItems for j, k in ((0, len(i) / 2), \
-                                                      (len(i) / 2, len(i))) if len(i) > 1]  # bi-section
-        for i in range(0, len(cItems), 2):  # parse in pairs
-            cItems0 = cItems[i]  # cluster 1
-            cItems1 = cItems[i + 1]  # cluster 2
-            cVar0 = getClusterVar(cov, cItems0)
-            cVar1 = getClusterVar(cov, cItems1)
-            alpha = 1 - cVar0 / (cVar0 + cVar1)
-            w[cItems0] *= alpha  # weight 1
-            w[cItems1] *= 1 - alpha  # weight 2
-    return w
+def get_inverse_var_pf(cov):
+    """Compute the inverse-variance portfolio"""
+    ivp = 1 / np.diag(cov)
+    return ivp / ivp.sum()
 
 
-def correlDist(corr):
-    # A distance matrix based on correlation, where 0<=d[i,j]<=1
-    # This is a proper distance metric
-    dist = ((1 - corr) / 2.) ** .5  # distance matrix
-    return dist
+def get_cluster_var(cov, cluster_items):
+    """Compute variance per cluster"""
+    cov_ = cov.loc[cluster_items, cluster_items]  # matrix slice
+    w_ = get_inverse_var_pf(cov_)
+    return (w_ @ cov_ @ w_).item()
 
 
-def plotCorrMatrix(path, corr, labels=None):
-    # Heatmap of the correlation matrix
-    if labels is None: labels = []
-    mpl.pcolor(corr)
-    mpl.colorbar()
-    mpl.yticks(np.arange(.5, corr.shape[0] + .5), labels)
-    mpl.xticks(np.arange(.5, corr.shape[0] + .5), labels)
-    mpl.savefig(path)
-    mpl.clf();
-    mpl.close()  # reset pylab
-    return
+def get_hrp_allocation(cov, tickers):
+    """Compute top-down HRP weights"""
+
+    weights = pd.Series(1, index=tickers)
+    clusters = [tickers]  # initialize one cluster with all assets
+
+    while len(clusters) > 0:
+        # run bisectional search:
+        clusters = [c[start:stop] for c in clusters
+                    for start, stop in ((0, int(len(c) / 2)),
+                                        (int(len(c) / 2), len(c)))
+                    if len(c) > 1]
+        for i in range(0, len(clusters), 2):  # parse in pairs
+            cluster0 = clusters[i]
+            cluster1 = clusters[i + 1]
+
+            cluster0_var = get_cluster_var(cov, cluster0)
+            cluster1_var = get_cluster_var(cov, cluster1)
+
+            weight_scaler = 1 - cluster0_var / (cluster0_var + cluster1_var)
+            weights[cluster0] *= weight_scaler
+            weights[cluster1] *= 1 - weight_scaler
+    return weights
 
 
-def generateData(nObs, size0, size1, sigma1):
-    # Time series of correlated variables
-    # 1) generating some uncorrelated data
-    np.random.seed(seed=12345);
-    random.seed(12345)
-    x = np.random.normal(0, 1, size=(nObs, size0))  # each row is a variable
-    # 2) creating correlation between the variables
-    cols = [random.randint(0, size0 - 1) for i in range(size1)]
-    y = x[:, cols] + np.random.normal(0, sigma1, size=(nObs, len(cols)))
-    x = np.append(x, y, axis=1)
-    x = pd.DataFrame(x, columns=list(range(1, x.shape[1] + 1)))
-    return x, cols
+with pd.HDFStore('../../00_data/assets.h5') as store:
+    sp500_stocks = store['sp500/stocks'].index
+    prices = store['quandl/wiki/prices'].adj_close.unstack('ticker').filter(sp500_stocks)
 
+start = 1988
+end = 2017
 
-def main():
-    # 1) Generate correlated data
-    nObs, size0, size1, sigma1 = 10000, 5, 5, .25
-    x, cols = generateData(nObs, size0, size1, sigma1)
-    print([(j + 1, size0 + i)
-           for i, j in enumerate(cols, 1)])
+monthly_returns = prices.loc[f'{start}':f'{end}'].resample('M').last().pct_change().dropna(how='all')
+monthly_returns = monthly_returns.dropna(axis=1)
+monthly_returns.columns.names = ['Ticker']
 
-    # 2) compute and plot correl matrix
-    cov, corr = x.cov(), x.corr()
-    plotCorrMatrix('HRP3_corr0.png', corr, labels=corr.columns)
+cov = monthly_returns.cov()
+corr = monthly_returns.corr()
+corr.columns.names = ['Ticker']
 
-    # 3) cluster
-    dist = correlDist(corr)
-    link = sch.linkage(dist, 'single')
-    sortIx = getQuasiDiag(link)
-    sortIx = corr.index[sortIx].tolist()  # recover labels
-    df0 = corr.loc[sortIx, sortIx]  # reorder
-    plotCorrMatrix('HRP3_corr1.png', df0, labels=df0.columns)
+cmap = sns.diverging_palette(10, 250, as_cmap=True)
+fig, ax = plt.subplots(figsize=(11, 10))
+sns.heatmap(corr, center=0, cmap=cmap, ax=ax)
+fig.tight_layout()
+fig.savefig('correl_map.png', dpi=600)
 
-    # 4) Capital allocation
-    hrp = getRecBipart(cov, sortIx)
-    print(hrp)
-    return
+distance_matrix = get_distance_matrix(corr)
+linkage_matrix = linkage(squareform(distance_matrix), 'single')
 
+# sorted_idx = quasi_diagonalize(linkage_matrix)
 
-if __name__ == '__main__': main()
+clustergrid = sns.clustermap(distance_matrix,
+                             method='single',
+                             row_linkage=linkage_matrix,
+                             col_linkage=linkage_matrix,
+                             cmap=cmap, center=0)
+
+clustergrid.savefig('clustermap.png', dpi=600)
+
+sorted_idx = clustergrid.dendrogram_row.reordered_ind
+sorted_tickers = corr.index[sorted_idx].tolist()
+hrp_allocation = get_hrp_allocation(cov, sorted_tickers)
