@@ -45,7 +45,7 @@ incremental==17.5.0
 inflection==0.3.1
 intervaltree==2.1.0
 ipykernel==4.8.2
-ipython==6.4.0
+ipython==6.3.0
 ipython-genutils==0.2.0
 ipywidgets==7.3.0
 jedi==0.12.1
@@ -61,6 +61,7 @@ jupyter-core==4.4.0
 jupyter-highlight-selected-word==0.2.0
 jupyter-latex-envs==1.4.4
 jupyter-nbextensions-configurator==0.4.0
+kaggle==1.4.2
 Keras==2.2.0
 Keras-Applications==1.0.2
 Keras-Preprocessing==1.0.1
@@ -80,13 +81,13 @@ multipledispatch==0.5.0
 nbconvert==5.3.1
 nbformat==4.4.0
 ndg-httpsclient==0.5.0
-networkx==2.1
+networkx==1.9.1
 notebook==5.6.0
 numexpr==2.6.6
 numpy==1.14.5
 orderedmultidict==1.0
 packaging==17.1
-pandas==0.23.3
+pandas==0.22.0
 pandas-datareader==0.6.0+30.g3c17058
 pandas-market-calendars==0.19
 pandocfilters==1.4.2
@@ -97,7 +98,7 @@ pexpect==4.6.0
 pickleshare==0.7.4
 pip-review==1.0
 prometheus-client==0.3.0
-prompt-toolkit==2.0.3
+prompt-toolkit==1.0.15
 protobuf==3.6.0
 ptyprocess==0.6.0
 pyarrow==0.9.0
@@ -153,10 +154,11 @@ terminado==0.8.1
 testpath==0.3.1
 toolz==0.9.0
 tornado==5.1
+tqdm==4.23.4
 trading-calendars==1.1.0
 traitlets==4.3.2
 Twisted==18.7.0
-urllib3==1.23
+urllib3==1.22
 w3lib==1.19.0
 wcwidth==0.1.7
 webencodings==0.5.1
