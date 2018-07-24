@@ -13,20 +13,6 @@ N_PORTFOLIOS = 2500000  # number of pf to simulate
 RF_RATE = 0.0178
 TRADING_DAYS = 252
 
-# with pd.HDFStore('../../00_data/assets.h5') as store:
-#     sp500 = store['sp500/stocks'].ticker.sample(n=50).tolist()
-#     prices = get_quandl_wiki(stocks=sp500, start=2010, end=2017)
-#     returns = prices.pct_change().dropna()
-
-# with pd.HDFStore('../../01_alpha_factors/momentum_factor.h5') as store:
-#     assets = store['mean_reversal/10/50/sp500/factor_data']['1D'].unstack('asset')
-#
-# print(assets.tail())
-#
-# with pd.HDFStore('../../00_data/assets.h5') as store:
-#     prices = store['/quandl/wiki/prices'].adj_close.unstack().loc[assets.index, assets.columns]
-#     print(prices.info())
-
 
 with pd.HDFStore('mv.h5') as store:
     factor = store.get('factor').loc['2016':]
