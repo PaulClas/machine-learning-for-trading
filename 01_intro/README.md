@@ -13,7 +13,7 @@
 
 ### Chapter 5: Linear Models for Regression & Classification
 ### Chapter 6: Time Series Models: ARIMA & VAR Models
-### Chapter 7: Unsupervised Learning: Filters, Clustering and Dimensionality Reduction for Financial Data
+### Chapter 7: Unsupervised Learning: Filters, Clustering and Dimensionality Reduction
 ### Chapter 8: Decision Trees & Random Forests to predict Asset Prices
 ### Chapter 9: Tuning & Interpreting Gradient Boosting Machines with LightGBM
 ### Chapter 10:Bayesian Machine Learning for Algorithmic Trading using PyMC3

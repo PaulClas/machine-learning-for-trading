@@ -1,6 +1,5 @@
 absl-py==0.2.2
 alembic==1.0.0
--e git+https://github.com/pyenv/pyenv.git@a2d51328eeef85b108303a31d90a8b0ba923a8ef#egg=alphalens
 asn1crypto==0.24.0
 astor==0.7.1
 attrs==18.1.0
@@ -30,7 +29,6 @@ cyordereddict==1.0.0
 Cython==0.28.4
 decorator==4.3.0
 docutils==0.14
--e git+https://github.com/pyenv/pyenv.git@a2d51328eeef85b108303a31d90a8b0ba923a8ef#egg=empyrical
 entrypoints==0.2.3
 fake-useragent==0.1.10
 furl==1.2
@@ -88,7 +86,7 @@ numpy==1.14.5
 orderedmultidict==1.0
 packaging==17.1
 pandas==0.22.0
-pandas-datareader==0.6.0+30.g3c17058
+pandas-datareader==0.6.0
 pandas-market-calendars==0.19
 pandocfilters==1.4.2
 parsel==1.5.0
