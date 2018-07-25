@@ -1,8 +1,13 @@
 # Chapter 2: Market & Fundamental Data
 
-## Resources
 
-### Market Data
+## Market Data
+
+### 01_NASDAQ_TotalView-ITCH_Order_Book
+
+This directory contains the code to download NASDAQ ITCH TotalView sample data, parse the data and reconstruct the order book.
+
+### Resources
 
 #### FIX implementations
 
@@ -17,6 +22,19 @@
 #### Other protocols
 
  - Native exchange protocols [around the world](https://en.wikipedia.org/wiki/List_of_electronic_trading_protocols_
+#
+
+## Fundamental Data
+
+### 02_EDGAR
+
+This folder contains the code to download and parse EDGAR data in XBRL format.
+
+## Resources
+
+### 03_Data Providers
+
+This folder contains examples to use various data providers.
 
 ### Python Libraries
 
