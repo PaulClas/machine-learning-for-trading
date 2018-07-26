@@ -1,4 +1,4 @@
-# Chapter 2: Market & Fundamental Data
+# Chapter 02: Market & Fundamental Data
 
 
 ## Market Data

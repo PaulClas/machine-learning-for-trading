@@ -1,4 +1,4 @@
-# Chapter 3: Alternative Data
+# Chapter 03: Alternative Data
 
 ## Open Table Web Scraping
 

@@ -1,4 +1,4 @@
-## Alpha Factor Research & Evaluation
+## Chapter 04: Alpha Factor Research & Evaluation
 
 This section introduces the algorithmic trading simulator [`zipline`](http://www.zipline.io/index.html) and the [`alphalens`](http://quantopian.github.io/alphalens/) library for the performance analysis of predictive (alpha) factors.
 

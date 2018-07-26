@@ -1,1 +1,5 @@
-# Chapter 1: From Idea to Execution
+# Chapter 01: From Idea to Execution
+
+## Resources
+
+## References

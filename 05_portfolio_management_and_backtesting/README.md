@@ -1,4 +1,4 @@
-# Strategy Evaluation & Portfolio Management
+# Chapter 05: Strategy Evaluation & Portfolio Management
 
 This chapter covers:
 
