@@ -27,8 +27,13 @@ zipline_logging.push_application()
 # Settings
 MONTH = 21
 YEAR = 12 * MONTH
-N_LONGS = N_SHORTS = 25
-VOL_SCREEN = 500
+N_LONGS = 200
+N_SHORTS = 0
+VOL_SCREEN = 1000
+
+start = pd.Timestamp('2010-01-01', tz=UTC)
+end = pd.Timestamp('2018-01-01', tz=UTC)
+capital_base = 1e7
 
 
 class MeanReversion(CustomFactor):
@@ -70,8 +75,8 @@ def rebalance(context, data):
     divest = context.portfolio.positions.keys() - longs.union(shorts)
 
     exec_trades(data, assets=divest, target_percent=0)
-    exec_trades(data, assets=longs, target_percent=1 / N_LONGS)
-    exec_trades(data, assets=shorts, target_percent=-1 / N_SHORTS)
+    exec_trades(data, assets=longs, target_percent=1 / N_LONGS if N_LONGS else 0)
+    exec_trades(data, assets=shorts, target_percent=-1 / N_SHORTS if N_SHORTS else 0)
 
 
 def initialize(context):
@@ -95,36 +100,28 @@ def before_trading_start(context, data):
     record(prices=data.current(assets, 'price'))
 
 
-start = pd.Timestamp('2015-01-01', tz=UTC)
-end = pd.Timestamp('2018-01-01', tz=UTC)
-capital_base = 1e7
-
 backtest = run_algorithm(start=start,
                          end=end,
                          initialize=initialize,
                          before_trading_start=before_trading_start,
                          capital_base=capital_base)
 
-print(backtest.info())
 returns, positions, transactions = extract_rets_pos_txn_from_zipline(backtest)
-print(returns.head())
-print(positions.info())
-print(transactions.info())
+# print(returns.head())
+# print(positions.info())
+# print(transactions.info())
 
+
+id = f'_long_{N_LONGS}_short_{N_SHORTS}_vol_{VOL_SCREEN}'
 with pd.HDFStore('backtests.h5') as store:
-    store.put('backtest', backtest)
-    store.put('returns', returns)
-    store.put('positions', positions)
-    store.put('transactions', transactions)
+    store.put('backtest' + id, backtest)
+    store.put('returns' + id, returns)
+    store.put('positions' + id, positions)
+    store.put('transactions' + id, transactions)
+
 
 exit()
 results_path = Path('results')
 if not results_path.exists():
     results_path.mkdir(exist_ok=True, parents=True)
     backtest.to_pickle('results/mean_reversal.pickle')
-
-interesting_times = extract_interesting_date_ranges(returns=returns)
-interesting_times['Fall2015'].to_frame('pf') \
-    .join(benchmark_rets) \
-    .add(1).cumprod().sub(1)\
-    .plot(lw=2, figsize=(14, 6), title='Post-Brexit Turmoil')
