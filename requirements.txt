@@ -1,5 +1,6 @@
 absl-py==0.2.2
 alembic==1.0.0
+-e git+https://github.com/pyenv/pyenv.git@a2d51328eeef85b108303a31d90a8b0ba923a8ef#egg=alphalens
 asn1crypto==0.24.0
 astor==0.7.1
 attrs==18.1.0
@@ -29,6 +30,7 @@ cyordereddict==1.0.0
 Cython==0.28.4
 decorator==4.3.0
 docutils==0.14
+-e git+https://github.com/pyenv/pyenv.git@a2d51328eeef85b108303a31d90a8b0ba923a8ef#egg=empyrical
 entrypoints==0.2.3
 fake-useragent==0.1.10
 furl==1.2
@@ -49,6 +51,7 @@ ipywidgets==7.3.0
 jedi==0.12.1
 Jinja2==2.10
 jmespath==0.9.3
+joblib==0.12.1
 jsonschema==2.6.0
 jupyter==1.0.0
 jupyter-client==5.2.3
@@ -59,11 +62,14 @@ jupyter-core==4.4.0
 jupyter-highlight-selected-word==0.2.0
 jupyter-latex-envs==1.4.4
 jupyter-nbextensions-configurator==0.4.0
-kaggle==1.4.2
+jupyterlab==0.32.1
+jupyterlab-launcher==0.10.5
+kaggle==1.4.5
 Keras==2.2.0
 Keras-Applications==1.0.2
 Keras-Preprocessing==1.0.1
 kiwisolver==1.0.1
+linearmodels==4.8
 Logbook==1.4.0
 lru-dict==1.1.6
 lxml==4.2.3
@@ -86,7 +92,7 @@ numpy==1.14.5
 orderedmultidict==1.0
 packaging==17.1
 pandas==0.22.0
-pandas-datareader==0.6.0
+pandas-datareader==0.6.0+30.g3c17058
 pandas-market-calendars==0.19
 pandocfilters==1.4.2
 parsel==1.5.0
@@ -107,8 +113,10 @@ pycparser==2.18
 pydata==1.0.0
 pydataset==0.2.0
 PyDispatcher==2.0.5
+-e git+https://github.com/pyenv/pyenv.git@a2d51328eeef85b108303a31d90a8b0ba923a8ef#egg=pyfolio
 Pygments==2.2.0
 PyHamcrest==1.9.0
+pymc3==3.5
 pyOpenSSL==18.0.0
 pyparsing==2.2.0
 python-dateutil==2.7.3

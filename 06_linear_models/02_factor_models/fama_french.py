@@ -8,7 +8,7 @@ import pandas as pd
 from statsmodels.api import OLS, add_constant
 import pandas_datareader.data as web
 from pathlib import Path
-from linearmodels.asset_pricing import TradedFactorModel
+from linearmodels.asset_pricing import TradedFactorModel, LinearFactorModel, LinearFactorModelGMM
 
 # pprint(get_available_datasets())
 
@@ -42,9 +42,9 @@ def lin_reg_results(y, X):
             .join(model.conf_int().rename(columns={0: 'lower', 1: 'upper'})))
 
 
-factor_exposures = data.groupby(data.index.year).apply(lambda x: lin_reg_results(y=x.Portfolio, X=x.iloc[:, 1:]))
-factor_exposures = factor_exposures.swaplevel(0, 1)
-print(factor_exposures)
+# factor_exposures = data.groupby(data.index.year).apply(lambda x: lin_reg_results(y=x.Portfolio, X=x.iloc[:, 1:]))
+# factor_exposures = factor_exposures.swaplevel(0, 1)
+# print(factor_exposures)
 
 
 # model = OLS(endog=data.Portfolio, exog=data.iloc[:, 1:].assign(alpha=1))
@@ -54,9 +54,13 @@ print(factor_exposures)
 # print(trained_model.params)
 # print(trained_model.conf_int())
 
+print(data.info())
 
-# trained_model = TradedFactorModel(data.Portfolio, data.iloc[:, 1:]).fit()
+trained_model = TradedFactorModel(data.Portfolio, data.iloc[:, 1:]).fit()
+# trained_model = LinearFactorModel(data.Portfolio, data.iloc[:, 1:]).fit()
 # print(trained_model.full_summary)
+# trained_model = LinearFactorModelGMM(data[['Portfolio']], data.iloc[:, 1:]).fit()
+print(trained_model.full_summary)
 
 
 # pprint(dir(trained_model))
@@ -79,3 +83,4 @@ RMW     -1.954589  -1.574746  -1.624207  -1.621381  -1.615864  -1.607500
 CMA      0.808437   0.742006   0.772242   0.770898   0.768481   0.764703
 RF       0.055854   0.066319   0.066540   0.066424   0.066312   0.066085
 """
+from sklearn.model_selection import TimeSeriesSplit

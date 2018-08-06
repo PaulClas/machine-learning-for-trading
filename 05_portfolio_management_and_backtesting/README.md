@@ -28,4 +28,12 @@ This directory contains the implementation of the Deflated Sharpe Ratio by [Marc
 
 ## 06 Hierarchical Risk Parity
 
+## References
 
+- [https://www.researchgate.net/publication/275756748_Beat_the_Market_A_Scientific_Stock_Market_System
+- Markowitz PF Theory [url](https://www.math.ust.hk/~maykwok/courses/ma362/07F/markowitz_JF.pdf)
+
+## Resources
+
+- [Backtest overfitting simulator](http://datagrid.lbl.gov/backtest/)
+- Marcos Lopez de Prado quantresearch [website](http://www.quantresearch.info/)
