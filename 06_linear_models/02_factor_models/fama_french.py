@@ -20,6 +20,7 @@ ff_factor = 'F-F_Research_Data_5_Factors_2x3_daily'
 with pd.HDFStore(data_path / 'risk_factors.h5') as store:
     ff_data = store.get(ff_factor).tz_localize('UTC')
 
+
 N_LONGS = 200
 N_SHORTS = 0
 VOL_SCREEN = 1000
@@ -57,11 +58,11 @@ def lin_reg_results(y, X):
 print(data.info())
 
 trained_model = TradedFactorModel(data.Portfolio, data.iloc[:, 1:]).fit()
-# trained_model = LinearFactorModel(data.Portfolio, data.iloc[:, 1:]).fit()
-# print(trained_model.full_summary)
-# trained_model = LinearFactorModelGMM(data[['Portfolio']], data.iloc[:, 1:]).fit()
 print(trained_model.full_summary)
-
+trained_model = LinearFactorModel(data.Portfolio, data.iloc[:, 1:]).fit()
+print(trained_model.full_summary)
+trained_model = LinearFactorModelGMM(data[['Portfolio']], data.iloc[:, 1:]).fit()
+print(trained_model.full_summary)
 
 # pprint(dir(trained_model))
 # print(trained_model.alphas)

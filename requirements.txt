@@ -103,7 +103,7 @@ pexpect==4.6.0
 pickleshare==0.7.4
 pip-review==1.0
 prometheus-client==0.3.1
-prompt-toolkit==2.0.4
+prompt-toolkit==1.0.15
 protobuf==3.6.0
 ptyprocess==0.6.0
 pyarrow==0.10.0
@@ -153,6 +153,8 @@ statsmodels==0.9.0
 sympy==1.2
 TA-Lib==0.4.17
 tables==3.4.4
+tensorboard==1.9.0
+tensorflow-gpu==1.9.0
 termcolor==1.1.0
 terminado==0.8.1
 testpath==0.3.1
