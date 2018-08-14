@@ -28,9 +28,7 @@ admin
 *.log
 *.cfg
 *.html
-00_resources
 resources
-.DS_Store
 archive
 results
 figures
