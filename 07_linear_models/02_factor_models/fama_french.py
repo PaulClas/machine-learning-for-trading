@@ -81,7 +81,7 @@ betas_lin = trained_model.betas
 print(alphas_traded.equals(alphas_lin))
 print(betas_traded.equals(betas_lin))
 trained_model = LinearFactorModelGMM(returns, ff_data).fit()
-# print(trained_model.full_summary)
+# print(trained_model.full_summary)tra
 print(trained_model.alphas)
 print(trained_model.betas)
 print(trained_model.betas.corr())
