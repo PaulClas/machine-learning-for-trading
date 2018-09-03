@@ -33,3 +33,6 @@ archive
 results
 figures
 data
+.DS_Store
+*yarn.lock
+*node_modules

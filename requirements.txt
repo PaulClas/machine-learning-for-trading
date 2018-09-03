@@ -1,6 +1,6 @@
 absl-py==0.3.0
 alembic==1.0.0
--e git+https://github.com/pyenv/pyenv.git@a2d51328eeef85b108303a31d90a8b0ba923a8ef#egg=alphalens
+-e git+git@github.com:quantopian/alphalens.git@7532b9be6a82beef6bf5685ed085ea58f8caa117#egg=alphalens
 appnope==0.1.0
 asn1crypto==0.24.0
 astor==0.7.1
@@ -31,7 +31,7 @@ cyordereddict==1.0.0
 Cython==0.28.5
 decorator==4.3.0
 docutils==0.14
--e git+https://github.com/pyenv/pyenv.git@a2d51328eeef85b108303a31d90a8b0ba923a8ef#egg=empyrical
+-e git+git@github.com:quantopian/empyrical.git@badbdca75f5b293f28b5e947974894de041d6868#egg=empyrical
 entrypoints==0.2.3
 fake-useragent==0.1.10
 furl==1.2
@@ -70,7 +70,7 @@ Keras==2.2.2
 Keras-Applications==1.0.4
 Keras-Preprocessing==1.0.2
 kiwisolver==1.0.1
-linearmodels==4.8
+linearmodels==4.9
 Logbook==1.4.0
 lru-dict==1.1.6
 lxml==4.2.4
@@ -93,7 +93,7 @@ numpy==1.15.0
 orderedmultidict==1.0
 packaging==17.1
 pandas==0.22.0
-pandas-datareader==0.6.0+30.g3c17058
+pandas-datareader==0.6.0
 pandas-market-calendars==0.19
 pandocfilters==1.4.2
 parsel==1.5.0
@@ -114,7 +114,7 @@ pycparser==2.18
 pydata==1.0.0
 pydataset==0.2.0
 PyDispatcher==2.0.5
--e git+https://github.com/pyenv/pyenv.git@a2d51328eeef85b108303a31d90a8b0ba923a8ef#egg=pyfolio
+pyfolio==0.9.0
 Pygments==2.2.0
 PyHamcrest==1.9.0
 pymc3==3.5
@@ -154,7 +154,7 @@ sympy==1.2
 TA-Lib==0.4.17
 tables==3.4.4
 tensorboard==1.9.0
-tensorflow-gpu==1.9.0
+tensorflow==1.9.0
 termcolor==1.1.0
 terminado==0.8.1
 testpath==0.3.1
