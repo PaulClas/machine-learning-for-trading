@@ -107,3 +107,7 @@ CMA      0.808437   0.742006   0.772242   0.770898   0.768481   0.764703
 RF       0.055854   0.066319   0.066540   0.066424   0.066312   0.066085
 """
 from sklearn.model_selection import TimeSeriesSplit
+
+
+
+print(res)
