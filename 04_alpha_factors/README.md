@@ -75,3 +75,22 @@ Alphalens depends on:
 -  [`seaborn`](https://github.com/mwaskom/seaborn)
 -  [`statsmodels`](https://github.com/statsmodels/statsmodels)
 
+## References
+
+### Empirical research on pricing anomalies and risk factors
+
+- "Dissecting Anomalies" by Eugene Fama and Ken French (2008)
+- "Explaining Stock Returns: A Literature Review" by James L. Davis (2001)
+- "Market Efficiency, Long-Term Returns, and Behavioral Finance" by Eugene Fama (1997)
+- "The Efficient Market Hypothesis and It's Critics" by Burton Malkiel (2003)
+- "The New Palgrave Dictionary of Economics" (2008) by Steven Durlauf and Lawrence Blume, 2nd ed.
+- "Anomalies and Market Efficiency" by G. William Schwert25 (Ch. 15 in Handbook of the
+- "Economics of Finance", by Constantinides, Harris, and Stulz, 2003)
+- "Investor Psychology and Asset Pricing", by David Hirshleifer (2001)
+
+### Identification and modeling of alpha factors
+
+- The Barra Equity Risk Model Handbook
+- Active Portfolio Management: A Quantitative Approach for Producing Superior Returns and Controlling Risk by Richard Grinold and Ronald Kahn
+- Modern Investment Management: An Equilibrium Approach by Bob Litterman
+- Quantitative Equity Portfolio Management: Modern Techniques and Applications by Edward Qian, Ronald Hua, and Eric Sorensen

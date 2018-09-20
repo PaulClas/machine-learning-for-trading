@@ -93,21 +93,3 @@ print(trained_model.betas.corr())
 # print(trained_model.name)
 # print(trained_model.params)
 # print(trained_model.risk_premia)
-
-
-"""
-comparing cov corrections
-             base        hac        hc0        hc1        hc2        hc3
-const   -0.831811  -0.804528  -0.792093  -0.790714  -0.790149  -0.788203
-Mkt-RF  60.967432  38.429023  40.677390  40.606603  40.485453  40.293231
-SMB      9.457036   7.503174   7.908571   7.894808   7.877760   7.846925
-HML     -2.458990  -2.024904  -2.140651  -2.136926  -2.132149  -2.123659
-RMW     -1.954589  -1.574746  -1.624207  -1.621381  -1.615864  -1.607500
-CMA      0.808437   0.742006   0.772242   0.770898   0.768481   0.764703
-RF       0.055854   0.066319   0.066540   0.066424   0.066312   0.066085
-"""
-from sklearn.model_selection import TimeSeriesSplit
-
-
-
-print(res)
