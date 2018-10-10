@@ -127,13 +127,13 @@ with pd.HDFStore('model_tuning.h5') as store:
 cv = OneStepTimeSeriesSplit(n_splits=n_splits)
 
 param_grid = dict(
-        n_estimators=[100, 300],
         learning_rate=[.01, .1, .2],
         max_depth=list(range(3, 13, 3)),
-        subsample=[.8, 1],
-        min_samples_split=[10, 50],
+        max_features=['sqrt', .8, 1],
         min_impurity_decrease=[0, .01],
-        max_features=['sqrt', .8, 1]
+        min_samples_split=[10, 50],
+        n_estimators=[100, 300],
+        subsample=[.8, 1],
 )
 
 all_params = list(product(*param_grid.values()))
@@ -151,7 +151,5 @@ start = time()
 gs.fit(X=X, y=y)
 done = time()
 print(f'Done in {done:.2f}s')
-
-
 joblib.dump(gs, 'gbm_gridsearch.joblib')
 
