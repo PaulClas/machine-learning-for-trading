@@ -19,7 +19,7 @@ boto3==1.7.71
 botocore==1.10.71
 Bottleneck==1.2.1
 bz2file==0.98
-catboost==0.10.2
+catboost==0.10.3
 certifi==2018.4.16
 cffi==1.11.5
 chardet==3.0.4
@@ -37,6 +37,7 @@ docutils==0.14
 -e git+https://github.com/pyenv/pyenv.git@a2d51328eeef85b108303a31d90a8b0ba923a8ef#egg=empyrical
 entrypoints==0.2.3
 enum34==1.1.6
+et-xmlfile==1.0.1
 fake-useragent==0.1.10
 furl==1.2
 gast==0.2.0
@@ -51,14 +52,15 @@ idna==2.7
 incremental==17.5.0
 inflection==0.3.1
 intervaltree==2.1.0
-ipykernel==4.8.2
+ipykernel==5.1.0
 ipython==6.5.0
 ipython-genutils==0.2.0
-ipywidgets==7.4.0
+ipywidgets==7.4.2
+jdcal==1.4
 jedi==0.12.1
 Jinja2==2.10
 jmespath==0.9.3
-joblib==0.12.2
+joblib==0.12.5
 jsonschema==2.6.0
 jupyter==1.0.0
 jupyter-client==5.2.3
@@ -70,7 +72,7 @@ jupyter-highlight-selected-word==0.2.0
 jupyter-latex-envs==1.4.4
 jupyter-nbextensions-configurator==0.4.0
 jupyterlab==0.33.7
-jupyterlab-launcher==0.11.2
+jupyterlab-launcher==0.13.1
 kaggle==1.4.6
 Keras==2.2.2
 Keras-Applications==1.0.6
@@ -98,11 +100,12 @@ notebook==5.7.0
 numexpr==2.6.6
 numpy==1.15.2
 nvidia-ml-py3==7.352.0
+openpyxl==2.5.8
 orderedmultidict==1.0
 packaging==17.1
 pandas==0.23.4
-pandas-datareader==0.6.0+30.g3c17058
-pandas-market-calendars==0.19
+pandas-datareader==0.7.0
+pandas-market-calendars==0.20.1
 pandocfilters==1.4.2
 parsel==1.5.0
 parso==0.3.1
@@ -155,6 +158,7 @@ seaborn==0.9.0
 selenium==3.14.0
 Send2Trash==1.5.0
 service-identity==17.0.0
+shap==0.24.0
 simplefix==1.0.9
 simplegeneric==0.8.1
 six==1.11.0

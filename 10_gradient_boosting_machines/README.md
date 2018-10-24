@@ -18,9 +18,11 @@
 - [GitHub Repo](https://github.com/dmlc/xgboost)
 - [Documentation](https://xgboost.readthedocs.io)
 - [Parameters](https://xgboost.readthedocs.io/en/latest/parameter.html)
+- [XGBoost: A Scalable Tree Boosting System](https://arxiv.org/abs/1603.02754)
 - [Accelerating the XGBoost algorithm using GPU computing. Mitchell R, Frank E., 2017, PeerJ Computer Science 3:e127](https://peerj.com/articles/cs-127/)
 - [XGBoost: Scalable GPU Accelerated Learning, Rory Mitchell, Andrey Adinets, Thejaswi Rao, 2018](http://arxiv.org/abs/1806.11248)
 - [Nvidia Parallel Forall: Gradient Boosting, Decision Trees and XGBoost with CUDA, Rory Mitchell, 2017](https://devblogs.nvidia.com/parallelforall/gradient-boosting-decision-trees-xgboost-cuda/)
+- [Awesome XGBoost](https://github.com/dmlc/xgboost/tree/master/demo)
 
 #### LightGBM
 
@@ -28,7 +30,11 @@
 - [Documentation](https://lightgbm.readthedocs.io/en/latest/index.html)
 - [Parameters](https://lightgbm.readthedocs.io/en/latest/Parameters.html)
 - [Python API](https://lightgbm.readthedocs.io/en/latest/Python-API.html)
+- [LightGBM: A Highly Efficient Gradient Boosting Decision Tree](https://papers.nips.cc/paper/6907-lightgbm-a-highly-efficient-gradient-boosting-decision-tree.pdf)
+- [On Grouping for Maximum Homogeneity](https://amstat.tandfonline.com/doi/abs/10.1080/01621459.1958.10501479#.W8_3pXX24UE)
 
 #### CatBoost
 
 - [Python API](https://tech.yandex.com/catboost/doc/dg/concepts/python-quickstart-docpage/)
+- [CatBoost: unbiased boosting with categorical features](https://arxiv.org/abs/1706.09516)
+- [CatBoost: gradient boosting with categorical features](http://learningsys.org/nips17/assets/papers/paper_11.pdf)
