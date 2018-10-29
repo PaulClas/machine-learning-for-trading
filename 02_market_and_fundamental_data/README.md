@@ -18,11 +18,11 @@ This directory contains the code to download NASDAQ ITCH TotalView sample data, 
 #### ITCH Protocol
 
 - The ITCH [Specifications](http://www.nasdaqtrader.com/content/technicalsupport/specifications/dataproducts/NQTVITCHspecification.pdf)
+- [Sample Files](ftp://emi.nasdaq.com/ITCH/)
 
 #### Other protocols
 
  - Native exchange protocols [around the world](https://en.wikipedia.org/wiki/List_of_electronic_trading_protocols_
-#
 
 ## Fundamental Data
 
@@ -40,9 +40,13 @@ This folder contains examples to use various data providers.
 
 #### HDF Format
 
+- [Pandas HDF5](http://pandas.pydata.org/pandas-docs/version/0.22/io.html#hdf5-pytables)
+
 #### Parquet Format
 
 #### Quantopian
+
+- [Binary Data services: `struct`](https://docs.python.org/3/library/struct.html)
 
 
 #### Quandl
@@ -50,6 +54,8 @@ This folder contains examples to use various data providers.
 #### pandas_datareader
 
 
-
 ## References
 
+- [Trading and Exchanges - Market Microstructure for Practitioners](https://global.oup.com/ushe/product/trading-and-exchanges-9780195144703?cc=us&lang=en&), Larry Harris, Oxford University Press, 2002
+- [World Federation of Exchanges](https://www.world-exchanges.org/our-work/statistics)
+- [FIX Trading Standards](https://www.fixtrading.org/standards/)

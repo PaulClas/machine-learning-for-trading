@@ -15,3 +15,5 @@ The subfolders contain the code to scrape earnings call transcripts from the See
 ### Python `Selenium`
 
 ## References
+
+- [Big Data and AI Strategies](http://valuesimplex.com/articles/JPM.pdf), Kolanovic, M. and Krishnamachari, R., JP Morgan, May 2017
