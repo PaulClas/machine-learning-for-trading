@@ -38,3 +38,6 @@ data
 *yarn.lock
 *node_modules
 *.icloud
+*.pkl
+*.pickle
+samples.py

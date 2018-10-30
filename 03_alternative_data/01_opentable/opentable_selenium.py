@@ -1,13 +1,11 @@
 # coding: utf-8
 
 
-from bs4 import BeautifulSoup
-from selenium import webdriver
+import re
 from time import sleep
 import pandas as pd
-import re
-
-url = "https://www.opentable.com/new-york-restaurant-listings"
+from bs4 import BeautifulSoup
+from selenium import webdriver
 
 
 def parse_html(html):
@@ -34,6 +32,7 @@ def parse_html(html):
 
 restaurants = pd.DataFrame()
 driver = webdriver.Firefox()
+url = "https://www.opentable.com/new-york-restaurant-listings"
 driver.get(url)
 while True:
     sleep(1)
@@ -41,6 +40,7 @@ while True:
     if new_data.empty:
         break
     restaurants = pd.concat([restaurants, new_data], ignore_index=True)
+    print(len(restaurants))
     driver.find_element_by_link_text('Next').click()
 
 driver.close()

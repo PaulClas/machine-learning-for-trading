@@ -4,6 +4,7 @@ __author__ = 'Stefan Jansen'
 
 import re
 from pathlib import Path
+from random import random
 from time import sleep
 from urllib.parse import urljoin
 
@@ -11,7 +12,6 @@ import pandas as pd
 from bs4 import BeautifulSoup
 from furl import furl
 from selenium import webdriver
-
 
 transcript_path = Path('transcripts')
 
@@ -96,6 +96,8 @@ while next_page:
             html = driver.page_source
             meta, participants, content = parse_html(html)
             meta['link'] = link
+            store_result(meta, participants, content)
+            sleep(5 + (random() - .5) * 2)
 
 driver.close()
 # pd.Series(articles).to_csv('articles.csv')

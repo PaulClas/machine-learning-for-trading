@@ -12,9 +12,10 @@ import pickle
 import requests
 from lxml import html
 
+from os import environ
 
-EMAIL = 'sjansen@post.harvard.edu'
-PASS = 'TQgZ2eu793J8kp9NMnrc'
+EMAIL = environ['SEEKING_ALPHA_USER']
+PASS = environ['SEEKING_ALPHA_PWD']
 
 driver = webdriver.Chrome()
 url = 'http://seekingalpha.com/account/login'
@@ -51,7 +52,7 @@ cookies = driver.get_cookies()
 pickle.dump(cookies, open('SA_cookies.pkl', 'wb'))
 driver.close()
 
-exit()
+# exit()
 # WebDriverWait(driver, 10).until(expected_conditions.title_contains("home"))
 
 

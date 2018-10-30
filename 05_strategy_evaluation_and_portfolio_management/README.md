@@ -27,11 +27,13 @@ This directory contains the implementation of the Deflated Sharpe Ratio by [Marc
 ## 05 Kelly Rule
 
 ## 06 Hierarchical Risk Parity
+- [Building Diversified Portfolios that Outperform Out-of-Sample](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2708678), Lopez de Prado, Journal of Portfolio Management, 2015
+- [Hierarchical Clustering Based Asset Allocation](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2840729), Raffinot 2016
 
 ## References
 
-- [https://www.researchgate.net/publication/275756748_Beat_the_Market_A_Scientific_Stock_Market_System
-- Markowitz PF Theory [url](https://www.math.ust.hk/~maykwok/courses/ma362/07F/markowitz_JF.pdf)
+- [Beat the Market: A Scientific Stock Market System](https://www.researchgate.net/publication/275756748_Beat_the_Market_A_Scientific_Stock_Market_System)
+- [Markowitz PF Theory](https://www.math.ust.hk/~maykwok/courses/ma362/07F/markowitz_JF.pdf)
 
 ## Resources
 

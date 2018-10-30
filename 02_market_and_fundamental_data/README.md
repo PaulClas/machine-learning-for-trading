@@ -26,6 +26,16 @@ This directory contains the code to download NASDAQ ITCH TotalView sample data, 
 
 ## Fundamental Data
 
+### 01_NASDAQ_TotalView-ITCH_Order_Book
+
+This folder contains the notebooks to
+- download NASDAQ Total View sample tick data,
+- parse the messages from the binary source data
+- reconstruct the order book for a given stock
+- visualize order flow data
+- normalize tick data
+
+
 ### 02_EDGAR
 
 This folder contains the code to download and parse EDGAR data in XBRL format.
@@ -41,8 +51,15 @@ This folder contains examples to use various data providers.
 #### HDF Format
 
 - [Pandas HDF5](http://pandas.pydata.org/pandas-docs/version/0.22/io.html#hdf5-pytables)
+- [HDF Support Portal](http://portal.hdfgroup.org/display/support)
+- [PyTables](https://www.pytables.org/)
 
 #### Parquet Format
+
+- [Apache Parquet](https://parquet.apache.org/)
+- [PyArrow: Parquet for Python](https://arrow.apache.org/docs/python/parquet.html)
+- [Development update: High speed Apache Parquet in Python with Apache Arrow](http://wesmckinney.com/blog/python-parquet-update/)
+
 
 #### Quantopian
 

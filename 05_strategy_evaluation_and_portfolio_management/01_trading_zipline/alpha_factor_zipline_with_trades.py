@@ -125,3 +125,4 @@ results_path = Path('results')
 if not results_path.exists():
     results_path.mkdir(exist_ok=True, parents=True)
     backtest.to_pickle('results/mean_reversal.pickle')
+
