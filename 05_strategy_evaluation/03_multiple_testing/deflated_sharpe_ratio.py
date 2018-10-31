@@ -1,7 +1,10 @@
 #!/usr/bin/env python
 # On 20140607 by lopezdeprado@lbl.gov
-import numpy as np, scipy.stats as ss, pandas as pd
 from itertools import product
+
+import numpy as np
+import pandas as pd
+import scipy.stats as ss
 
 
 def getExpMaxSR(mu, sigma, numTrials):
