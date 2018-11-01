@@ -75,17 +75,15 @@ class OneStepTimeSeriesSplit:
         self.test_end = n_splits * test_period_length
 
     @staticmethod
-    def chunks(l, n):
-        for i in range(0, len(l), n):
-            yield l[i:i + n]
+    def chunks(l, chunk_size):
+        for i in range(0, len(l), chunk_size):
+            yield l[i:i + chunk_size]
 
     def split(self, X, y=None, groups=None):
-        unique_dates = (X
-                            .index
-                            .get_level_values('date')
-                            .unique()
-                            .sort_values(ascending=False)
-        [:self.test_end])
+        unique_dates = (X.index
+                        .get_level_values('date')
+                        .unique()
+                        .sort_values(ascending=False)[:self.test_end])
 
         dates = X.reset_index()[['date']]
         for test_date in self.chunks(unique_dates, self.test_period_length):

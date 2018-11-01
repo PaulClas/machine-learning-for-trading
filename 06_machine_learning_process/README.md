@@ -2,7 +2,7 @@
 
 ## Content
 
-### 01 Error Metrics
+### 01 The Machine Learning Workflow
 
 
 ### 02 Bias Variance Trade-Off
@@ -14,3 +14,5 @@
 ## References
 
 - [sklearn Documentation](http://scikit-learn.org/stable/documentation.html)
+- [Yellowbrick: Machine Learning Visualization](http://www.scikit-yb.org/en/latest/)
+- [Advances in Financial Machine Learning](https://www.wiley.com/en-us/Advances+in+Financial+Machine+Learning-p-9781119482086), Lopez de Prado, 2018

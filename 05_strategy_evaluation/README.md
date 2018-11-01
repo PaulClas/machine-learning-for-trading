@@ -22,6 +22,14 @@ You'll find a jupyter notebook that illustrates how to extract the `pyfolio` inp
 
 This directory contains the implementation of the Deflated Sharpe Ratio by [Marcos Lopez de Prado](http://www.quantresearch.info/Software.htm).
 
+- [The Deflated Sharpe Ratio: Correcting for Selection Bias, Backtest Overfitting and Non-Normality](https://www.davidhbailey.com/dhbpapers/deflated-sharpe.pdf), Bailey, David and Lopez de Prado, Marcos, Journal of Portfolio Management, 2013
+- [Backtest Overfitting: An Interactive Example](http://datagrid.lbl.gov/backtest/)
+- [Backtesting](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2606462), Lopez de Prado, Marcos, 2015
+- [Secretary Problem (Optimal Stopping)](https://www.geeksforgeeks.org/secretary-problem-optimal-stopping-problem/)
+- [Optimal Stopping and Applications](https://www.math.ucla.edu/~tom/Stopping/Contents.html), Ferguson, Math Department, UCLA
+- [Advances in Machine Learning Lectures 4/10 - Backtesting I](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3257420), Marcos Lopez de Prado, 2018
+- [Advances in Machine Learning Lectures 5/10 - Backtesting II](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3257497), Marcos Lopez de Prado, 2018
+
 
 ## 04 Efficient Frontier
 
@@ -30,7 +38,6 @@ This directory contains the implementation of the Deflated Sharpe Ratio by [Marc
 
 ## References
 
-- [Backtest Overfitting: An Interactive Example](http://datagrid.lbl.gov/backtest/)
 - [Beat the Market: A Scientific Stock Market System](https://www.researchgate.net/publication/275756748_Beat_the_Market_A_Scientific_Stock_Market_System)
 - [Markowitz PF Theory](https://www.math.ust.hk/~maykwok/courses/ma362/07F/markowitz_JF.pdf)
 
