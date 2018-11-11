@@ -76,3 +76,12 @@ This folder contains examples to use various data providers.
 - [Trading and Exchanges - Market Microstructure for Practitioners](https://global.oup.com/ushe/product/trading-and-exchanges-9780195144703?cc=us&lang=en&), Larry Harris, Oxford University Press, 2002
 - [World Federation of Exchanges](https://www.world-exchanges.org/our-work/statistics)
 - [FIX Trading Standards](https://www.fixtrading.org/standards/)
+
+## Data Sources
+
+- [Compilation of macro resources by the Yale Law School](https://library.law.yale.edu/news/75-sources-economic-data-statistics-reports-and-commentary)
+- [Capital IQ](www.capitaliq.com)
+- [Compustat](www.compustat.com)
+- [MSCI Barra](www.mscibarra.com)
+- [Northfield Information Services](www.northinfo.com)
+- [Quantitative Services Group](www.qsg.com)

@@ -81,9 +81,9 @@ class OneStepTimeSeriesSplit:
 
     def split(self, X, y=None, groups=None):
         unique_dates = (X.index
-                        .get_level_values('date')
-                        .unique()
-                        .sort_values(ascending=False)[:self.test_end])
+                            .get_level_values('date')
+                            .unique()
+                            .sort_values(ascending=False)[:self.test_end])
 
         dates = X.reset_index()[['date']]
         for test_date in self.chunks(unique_dates, self.test_period_length):
