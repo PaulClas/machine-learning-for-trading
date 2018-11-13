@@ -20,6 +20,14 @@
 
 - [Independent Component Analysis: Algorithms and Applications](https://www.sciencedirect.com/science/article/pii/S0893608000000265), Aapo Hyvärinen and Erkki Oja, Neural Networks, 2000
 - [Independent Components Analysis](http://cs229.stanford.edu/notes/cs229-notes11.pdf), CS229 Lecture Notes, Andrew Ng
+- [Common factors in prices, order flows, and liquidity](https://www.sciencedirect.com/science/article/pii/S0304405X0000091X), Hasbrouck and Seppi, Journal of Financial Economics, 2001
+- [Volatility Modelling of Multivariate Financial Time Series by Using ICA-GARCH Models](https://link.springer.com/chapter/10.1007/11508069_74), Edmond H. C. Wu, Philip L. H. Yu, in: Gallagher M., Hogan J.P., Maire F. (eds) Intelligent Data Engineering and Automated Learning - IDEAL 2005
+- [The Prediction Performance of Independent Factor Models](http://www.cs.cuhk.hk/~lwchan/papers/icapred.pdf), Chan, In: proceedings of the 2002 IEEE International Joint Conference on Neural Networks
+- [An Overview of Independent Component Analysis and Its Applications](http://www.informatica.si/ojs-2.4.3/index.php/informatica/article/download/334/333), Ganesh R. Naik, Dinesh K Kumar, Informatica 2011
+
+#### PCA and Risk Factor Models
+
+- [Characteristics Are Covariances: A Unified Model of Risk and Return](http://www.nber.org/2018LTAM/kelly.pdf), Kelly, Pruitt and Su, NBER, 2018
 
 ### Hierarchical Risk Parity
 
@@ -27,9 +35,3 @@
 - [Hierarchical Clustering Based Asset Allocation](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2840729), Raffinot 2016
 
 
-pca = PCA()
-projected_data  = pca.fit_transform(data)
-projected_data.shape
-
-C = pca.components_.T # columns = principal components
-C
