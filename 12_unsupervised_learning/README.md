@@ -6,7 +6,7 @@
 
 ## References
 
-### Dimensionality Reduction
+### Linear Dimensionality Reduction
 
 - [Dimension Reduction: A Guided Tour](https://www.microsoft.com/en-us/research/publication/dimension-reduction-a-guided-tour-2/), Chris J.C. Burges, Foundations and Trends in Machine Learning, January 2010
 
@@ -29,9 +29,39 @@
 
 - [Characteristics Are Covariances: A Unified Model of Risk and Return](http://www.nber.org/2018LTAM/kelly.pdf), Kelly, Pruitt and Su, NBER, 2018
 
+#### PCA and Eigen Portfolios
+
+- [Statistical Arbitrage in the U.S. Equities Market](https://math.nyu.edu/faculty/avellane/AvellanedaLeeStatArb20090616.pdf), Marco Avellaneda and Jeong-Hyun Lee, 2008
+
+
+### Manifold Learning
+
+#### Data
+
+- [MNIST Data](http://yann.lecun.com/exdb/mnist/)
+- [Fashion MNIST dataset](https://github.com/zalandoresearch/fashion-mnist)
+
+#### Local Linear Embedding
+
+- [Locally Linear Embedding](https://cs.nyu.edu/~roweis/lle/), Sam T. Roweis and Lawrence K. Saul (LLE author website)
+
+#### t-SNE
+
+- [Visualizing Data using t-SNE](http://www.cs.toronto.edu/~hinton/absps/tsne.pdf), van der Maaten, Hinton, Journal of Machine Learning Research, 2008
+- [Visualizing Time-Dependent Data Using Dynamic t-SNE](http://www.cs.rug.nl/~alext/PAPERS/EuroVis16/paper.pdf), Rauber, Falcão, Telea, Eurographics Conference on Visualization (EuroVis) 2016
+- [t-Distributed Stochastic Neighbor Embedding Wins Merck Viz Challenge](http://blog.kaggle.com/2012/11/02/t-distributed-stochastic-neighbor-embedding-wins-merck-viz-challenge/), Kaggle Blog 2016
+- [t-SNE: Google Tech Talk](https://www.youtube.com/watch?v=RJVL80Gg3lA&list=UUtXKDgv1AVoG88PLl8nGXmw), van der Maaten, 2013
+
+#### U
+
+- [UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction](https://arxiv.org/abs/1802.03426), Leland McInnes, John Healy, 2018
+
+
 ### Hierarchical Risk Parity
 
 - [Building Diversified Portfolios that Outperform Out-of-Sample](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2708678), Lopez de Prado, Journal of Portfolio Management, 2015
 - [Hierarchical Clustering Based Asset Allocation](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2840729), Raffinot 2016
+
+
 
 
