@@ -1,6 +1,5 @@
 absl-py==0.3.0
 alembic==1.0.0
--e git+https://github.com/pyenv/pyenv.git@a2d51328eeef85b108303a31d90a8b0ba923a8ef#egg=alphalens
 appnope==0.1.0
 arch==4.4.1
 asn1crypto==0.24.0
@@ -35,7 +34,6 @@ cyordereddict==1.0.0
 Cython==0.28.5
 decorator==4.3.0
 docutils==0.14
--e git+https://github.com/pyenv/pyenv.git@a2d51328eeef85b108303a31d90a8b0ba923a8ef#egg=empyrical
 entrypoints==0.2.3
 enum34==1.1.6
 et-xmlfile==1.0.1
@@ -141,7 +139,6 @@ PyDispatcher==2.0.5
 pydot==1.2.4
 pydot-ng==1.0.0
 pyfinance==1.1.1
--e git+https://github.com/pyenv/pyenv.git@a2d51328eeef85b108303a31d90a8b0ba923a8ef#egg=pyfolio
 Pygments==2.2.0
 PyHamcrest==1.9.0
 pymc3==3.5
@@ -184,7 +181,6 @@ sympy==1.2
 TA-Lib==0.4.17
 tables==3.4.4
 tensorboard==1.11.0
-tensorflow-gpu==1.11.0
 termcolor==1.1.0
 terminado==0.8.1
 testpath==0.3.1
