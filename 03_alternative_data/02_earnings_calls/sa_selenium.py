@@ -31,11 +31,18 @@ def parse_html(html):
     soup = BeautifulSoup(html, 'lxml')
 
     meta, participants, content = {}, [], []
-    h1 = soup.find('h1', itemprop='headline').text
+    h1 = soup.find('h1', itemprop='headline')
+    if h1 is None:
+        return
+    h1 = h1.text
     meta['company'] = h1[:h1.find('(')].strip()
     meta['symbol'] = h1[h1.find('(') + 1:h1.find(')')]
 
-    title = soup.find('div', class_='title').text
+    title = soup.find('div', class_='title')
+    if title is None:
+        return
+    title = title.text
+    print(title)
     match = date_pattern.search(title)
     if match:
         m, d, y = match.groups()
@@ -77,9 +84,10 @@ SA_URL = 'https://seekingalpha.com/'
 TRANSCRIPT = re.compile('Earnings Call Transcript')
 
 next_page = True
-page = 1
+page = 5
 driver = webdriver.Firefox()
 while next_page:
+    print(f'Page: {page}')
     url = f'{SA_URL}/earnings/earnings-call-transcripts/{page}'
     driver.get(urljoin(SA_URL, url))
     response = driver.page_source
@@ -94,9 +102,11 @@ while next_page:
             article_url = furl(urljoin(SA_URL, transcript_url)).add({'part': 'single'})
             driver.get(article_url.url)
             html = driver.page_source
-            meta, participants, content = parse_html(html)
-            meta['link'] = link
-            store_result(meta, participants, content)
+            result = parse_html(html)
+            if result is not None:
+                meta, participants, content = result
+                meta['link'] = link
+                store_result(meta, participants, content)
             sleep(5 + (random() - .5) * 2)
 
 driver.close()
