@@ -54,8 +54,6 @@ textacy is a Python library that performs a variety of natural language processi
 
 The TextBlob Python library provides a simplified interface for exploring common NLP tasks including part-of-speech tagging, noun phrase extraction, sentiment analysis, classification, translation, and more.
 
-To proceed with the lesson, first install TextBlob, as explained below. We tend to prefer Anaconda-based installations, since they tend to be tested with our other Anaconda packages.
-
 **To install textblob run:**
 
 > `conda install -c https://conda.anaconda.org/sloria textblob`
@@ -66,6 +64,7 @@ To proceed with the lesson, first install TextBlob, as explained below. We tend 
 
 > `python -m textblob.download_corpora lite`
 
+- [TextBlob website](https://textblob.readthedocs.io/en/dev/)
 
 
 ## References
@@ -89,5 +88,5 @@ To proceed with the lesson, first install TextBlob, as explained below. We tend 
 - [BBC Articles](http://mlg.ucd.ie/datasets/bbc.html), use raw text files
 - [TED2013](http://opus.nlpl.eu/TED2013.php), a parallel corpus of TED talk subtitles in 15 langugages
 - [Cheng-Caverlee-Lee September 2009 - January 2010 Twitter Scrape](https://archive.org/details/twitter_cikm_2010)
-
+- [Yelp Dataset Challenge](https://www.yelp.com/dataset/challenge)
 - [The New York Times Annotated Corpus](https://catalog.ldc.upenn.edu/LDC2008T19)
