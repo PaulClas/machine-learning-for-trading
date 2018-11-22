@@ -52,7 +52,7 @@ textacy is a Python library that performs a variety of natural language processi
 ### TextBlob
 
 
-The TextBlob Python library provides a simplified interface for exploring common NLP tasks including part-of-speech tagging, noun phrase extraction, sentiment analysis, classification, translation, and more.
+The `TextBlob` library provides a simplified interface for common NLP tasks including part-of-speech tagging, noun phrase extraction, sentiment analysis, classification, translation, and others.
 
 **To install textblob run:**
 
@@ -62,10 +62,18 @@ The TextBlob Python library provides a simplified interface for exploring common
 
 > `pip install textblob`
 
-> `python -m textblob.download_corpora lite`
+> `python -m textblob.download_corpora`
 
-- [TextBlob website](https://textblob.readthedocs.io/en/dev/)
+- [TextBlob Documentation](https://textblob.readthedocs.io/en/dev/)
 
+- [TextBlob Sentiment Analysis](https://github.com/sloria/TextBlob/blob/dev/textblob/en/en-sentiment.xml)
+
+
+### Natural Language Toolkit (NLTK)
+
+NLTK is a leading platform for building Python programs to work with human language data. It provides easy-to-use interfaces to over 50 corpora and lexical resources such as WordNet, along with a suite of text processing libraries for classification, tokenization, stemming, tagging, parsing, and semantic reasoning, wrappers for industrial-strength NLP libraries, and an active discussion forum.
+
+- [NLTK Documentation](http://www.nltk.org/)
 
 ## References
 
