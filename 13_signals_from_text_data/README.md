@@ -21,7 +21,8 @@
 - **Sentiment analysis:** Attitude of speaker.
     - [Hater News](https://medium.com/@KevinMcAlear/building-hater-news-62062c58325c)
 - **Automatic summarization:** Extractive or abstractive summarization.
-    - [autotldr](https://www.reddit.com/r/technology/comments/35brc8/21_million_people_still_use_aol_dialup/cr2zzj0)
+    - [reddit's autotldr algo](https://smmry.com/about)
+    - [autotldr example](https://www.reddit.com/r/technology/comments/35brc8/21_million_people_still_use_aol_dialup/cr2zzj0)
 - **Natural language generation:** Generate text from data.
     - [How a computer describes a sports match](http://www.bbc.com/news/technology-34204052)
     - [Publishers withdraw more than 120 gibberish papers](http://www.nature.com/news/publishers-withdraw-more-than-120-gibberish-papers-1.14763)
