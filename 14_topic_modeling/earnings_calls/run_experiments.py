@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.model_selection import train_test_split
-from gensim.models import LdaModel, LdaMulticore
+from gensim.models import LdaModel
 from gensim.matutils import Sparse2Corpus
 from scipy import sparse
 from itertools import product
