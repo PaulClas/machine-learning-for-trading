@@ -84,7 +84,7 @@ SA_URL = 'https://seekingalpha.com/'
 TRANSCRIPT = re.compile('Earnings Call Transcript')
 
 next_page = True
-page = 5
+page = 1
 driver = webdriver.Firefox()
 while next_page:
     print(f'Page: {page}')
