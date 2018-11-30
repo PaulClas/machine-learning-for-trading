@@ -101,27 +101,26 @@ for i, (min_df, max_df, binary) in enumerate(dtm_params, 1):
     train_corpus = Sparse2Corpus(train_dtm, documents_columns=False)
     test_corpus = Sparse2Corpus(test_dtm, documents_columns=False)
     timing = []
-    for workers in [1, 4, 8, 16]:
+    for workers in [8, 16]:
         for num_topics in [10, 50]:
-            for chunksize in [500, 2000, 10000]:
-                print('start', workers, num_topics, end=' ')
-                start = time()
-                lda = LdaMulticore(corpus=train_corpus,
-                                   num_topics=num_topics,
-                                   id2word=id2word,
-                                   chunksize=chunksize,
-                                   passes=1,
-                                   eval_every=None,
-                                   workers=workers,
-                                   random_state=42)
-                duration = time() - start
-                test_perplexity = 2 ** (-lda.log_perplexity(test_corpus))
-                timing.append([workers, num_topics, duration, test_perplexity])
-                print(format_time(duration), test_perplexity)
-                pd.DataFrame(timing, columns=['workers',
-                                              'num_topics',
-                                              'duration',
-                                              'test_perplexity']).to_csv(f'timings_{workers}.csv', index=False)
+            print('start', workers, num_topics, end=' ')
+            start = time()
+            lda = LdaMulticore(corpus=train_corpus,
+                               num_topics=num_topics,
+                               id2word=id2word,
+                               chunksize=1000,
+                               passes=1,
+                               eval_every=None,
+                               workers=workers,
+                               random_state=42)
+            duration = time() - start
+            test_perplexity = 2 ** (-lda.log_perplexity(test_corpus))
+            timing.append([workers, num_topics, duration, test_perplexity])
+            print(format_time(duration), test_perplexity)
+            pd.DataFrame(timing, columns=['workers',
+                                          'num_topics',
+                                          'duration',
+                                          'test_perplexity']).to_csv(f'timings_{workers}.csv', index=False)
     exit()
 
     test_vocab = test_dtm.count_nonzero()

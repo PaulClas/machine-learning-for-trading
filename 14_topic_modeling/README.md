@@ -8,6 +8,9 @@
     - [David Blei's List of Open Source Topic Modeling Software](http://www.cs.columbia.edu/~blei/topicmodeling_software.html)
 
     - [Mallet (MAchine Learning for LanguagE Toolkit (in Java)](http://mallet.cs.umass.edu/)
+
+- pLSA
+    - [Relation between PLSA and NMF and Implications](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.70.8839&rep=rep1&type=pdf), Gaussier, Goutte, 2005
 - pyLDAvis:
     - [Talk by the Author](https://speakerdeck.com/bmabey/visualizing-topic-models) and [Paper by (original) Author](http://www.aclweb.org/anthology/W14-3110)
     - [Documentation](http://pyldavis.readthedocs.io/en/latest/index.html)
