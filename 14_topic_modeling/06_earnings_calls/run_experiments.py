@@ -41,15 +41,8 @@ def clean_doc(d):
     return ' '.join(doc)
 
 
-# experiment setup
-cols = ['vocab_size', 'test_vocab', 'min_df', 'max_df', 'binary', 'num_topics', 'passes', 'perplexity']
 clean_text = Path('clean_text.txt')
-experiment_path = Path('experiments')
-
-# get text files
-if clean_text.exists():
-    clean_docs = clean_text.read_text().split('\n')
-else:
+def preprocess():
     earnings_path = Path('transcripts')
     docs = []
     for transcript in earnings_path.iterdir():
@@ -64,6 +57,17 @@ else:
         clean_docs.append(clean_doc(doc))
 
     clean_text.write_text('\n'.join(clean_docs))
+
+
+# experiment setup
+cols = ['vocab_size', 'test_vocab', 'min_df', 'max_df', 'binary', 'num_topics', 'passes', 'perplexity']
+experiment_path = Path('experiments')
+
+# get text files
+if clean_text.exists():
+    clean_docs = clean_text.read_text().split('\n')
+else:
+    preprocess()
 
 print('\n', len(clean_docs))
 train_docs, test_docs = train_test_split(clean_docs, test_size=.1)
@@ -82,9 +86,9 @@ model_params = list(product(*[topicss, passess]))
 
 corpus = id2word = train_corpus = train_tokens = test_corpus = vocab_size = test_vocab = None
 start = time()
-result = []
 for i, (min_df, max_df, binary) in enumerate(dtm_params, 1):
     print(min_df, max_df, binary)
+    result = []
 
     vocab_path = experiment_path / str(min_df) / str(max_df) / str(int(binary))
     if vocab_path.exists():
@@ -118,21 +122,21 @@ for i, (min_df, max_df, binary) in enumerate(dtm_params, 1):
             model_path.mkdir(exist_ok=True, parents=True)
         print((num_topics, passes), end=' ', flush=True)
         lda = LdaModel(corpus=corpus,
-                           num_topics=num_topics,
-                           id2word=id2word,
-                           passes=passes,
-                           eval_every=None,
-                           random_state=42)
+                       num_topics=num_topics,
+                       id2word=id2word,
+                       passes=passes,
+                       eval_every=None,
+                       random_state=42)
 
         doc_topics = pd.DataFrame()
         model_file = (model_path / 'lda').resolve().as_posix()
         lda.save(model_file)
         train_lda = LdaModel(corpus=train_corpus,
-                                 num_topics=num_topics,
-                                 id2word=pd.Series(train_tokens).to_dict(),
-                                 passes=passes,
-                                 eval_every=None,
-                                 random_state=42)
+                             num_topics=num_topics,
+                             id2word=pd.Series(train_tokens).to_dict(),
+                             passes=passes,
+                             eval_every=None,
+                             random_state=42)
 
         test_perplexity = 2 ** (-train_lda.log_perplexity(test_corpus))
         coherence = pd.concat([coherence, (pd.Series([c[1] for c in lda.top_topics(corpus=corpus,
@@ -152,5 +156,43 @@ for i, (min_df, max_df, binary) in enumerate(dtm_params, 1):
     print(f'\nDone: {i / n:.2%} | Duration: {format_time(elapsed)} | To Go: {format_time(elapsed / i * (n - i))}\n')
     results = pd.DataFrame(result, columns=cols).sort_values('perplexity')
     print(results.head(10))
-    results.to_csv(vocab_path / 'result.csv', index=False)
+    results.to_csv(vocab_path / 'perplexity.csv', index=False)
     coherence.to_csv(vocab_path / 'coherence.csv', index=False)
+
+
+def collect_experiment_results():
+    experiment_path = Path('experiments')
+
+    # dtm params
+    min_dfs = [50, 100, 250, 500]
+    max_dfs = [.1, .25, .5, 1.0]
+    binarys = [True, False]
+
+    perplexity = pd.DataFrame()
+    coherence = pd.DataFrame()
+    for min_df in min_dfs:
+        for max_df in max_dfs:
+            for binary in binarys:
+                vocab_path = experiment_path / str(min_df) / str(max_df) / str(int(binary))
+                try:
+                    perplexity = pd.concat([perplexity,
+                                            pd.read_csv(vocab_path / 'perplexity.csv')])
+                    df = (pd.melt(pd.read_csv(vocab_path / 'coherence.csv',
+                                              header=[0, 1]),
+                                  var_name=['num_topics', 'passes'],
+                                  value_name='coherence')
+                          .dropna()
+                          .assign(min_df=min_df,
+                                  max_df=max_df,
+                                  binary=binary))
+
+                    coherence = pd.concat([coherence,
+                                           df])
+                except FileNotFoundError:
+                    print('Missing:', min_df, max_df, binary)
+
+    print(perplexity.info())
+    print(coherence.info())
+    with pd.HDFStore('results.h5') as store:
+        store.put('perplexity', perplexity)
+        store.put('coherence', coherence)
