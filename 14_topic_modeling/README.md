@@ -33,3 +33,5 @@
 
     - [LDA in the browser - javascript implementation](https://github.com/mimno/jsLDA)
     - [David Mimno @ Cornell University](https://mimno.infosci.cornell.edu/)
+
+

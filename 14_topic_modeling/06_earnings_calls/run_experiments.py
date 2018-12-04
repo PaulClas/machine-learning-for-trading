@@ -33,41 +33,14 @@ def format_time(t):
     return f'{h:>02.0f}:{m:>02.0f}:{s:>02.0f}'
 
 
-def clean_doc(d):
-    doc = []
-    for t in d:
-        if not any([t.is_stop, t.is_digit, not t.is_alpha, t.is_punct, t.is_space, t.lemma_ == '-PRON-']):
-            doc.append(t.lemma_)
-    return ' '.join(doc)
-
-
 clean_text = Path('clean_text.txt')
-def preprocess():
-    earnings_path = Path('transcripts')
-    docs = []
-    for transcript in earnings_path.iterdir():
-        content = pd.read_csv(transcript / 'content.csv')
-        docs.extend(content.loc[(content.speaker != 'Operator') & (content.content.str.len() > 5), 'content'].tolist())
-
-    clean_docs = []
-    for i, doc in enumerate(docs, 1):
-        if i % 1000 == 0:
-            print(f'{i / len(docs):.2%}', end=' ', flush=True)
-        doc = nlp(doc)
-        clean_docs.append(clean_doc(doc))
-
-    clean_text.write_text('\n'.join(clean_docs))
-
 
 # experiment setup
 cols = ['vocab_size', 'test_vocab', 'min_df', 'max_df', 'binary', 'num_topics', 'passes', 'perplexity']
 experiment_path = Path('experiments')
 
 # get text files
-if clean_text.exists():
-    clean_docs = clean_text.read_text().split('\n')
-else:
-    preprocess()
+clean_docs = clean_text.read_text().split('\n')
 
 print('\n', len(clean_docs))
 train_docs, test_docs = train_test_split(clean_docs, test_size=.1)
@@ -158,41 +131,3 @@ for i, (min_df, max_df, binary) in enumerate(dtm_params, 1):
     print(results.head(10))
     results.to_csv(vocab_path / 'perplexity.csv', index=False)
     coherence.to_csv(vocab_path / 'coherence.csv', index=False)
-
-
-def collect_experiment_results():
-    experiment_path = Path('experiments')
-
-    # dtm params
-    min_dfs = [50, 100, 250, 500]
-    max_dfs = [.1, .25, .5, 1.0]
-    binarys = [True, False]
-
-    perplexity = pd.DataFrame()
-    coherence = pd.DataFrame()
-    for min_df in min_dfs:
-        for max_df in max_dfs:
-            for binary in binarys:
-                vocab_path = experiment_path / str(min_df) / str(max_df) / str(int(binary))
-                try:
-                    perplexity = pd.concat([perplexity,
-                                            pd.read_csv(vocab_path / 'perplexity.csv')])
-                    df = (pd.melt(pd.read_csv(vocab_path / 'coherence.csv',
-                                              header=[0, 1]),
-                                  var_name=['num_topics', 'passes'],
-                                  value_name='coherence')
-                          .dropna()
-                          .assign(min_df=min_df,
-                                  max_df=max_df,
-                                  binary=binary))
-
-                    coherence = pd.concat([coherence,
-                                           df])
-                except FileNotFoundError:
-                    print('Missing:', min_df, max_df, binary)
-
-    print(perplexity.info())
-    print(coherence.info())
-    with pd.HDFStore('results.h5') as store:
-        store.put('perplexity', perplexity)
-        store.put('coherence', coherence)
