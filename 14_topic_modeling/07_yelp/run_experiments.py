@@ -56,10 +56,6 @@ model_params = list(product(*[topicss, passess]))
 # corpus = id2word = train_corpus = train_tokens = test_corpus = vocab_size = test_vocab = None
 start = time()
 for i, (min_df, max_df, binary) in enumerate(dtm_params, 1):
-    min_df = 0.01
-    max_df = 0.25
-    binary = False
-
     print(min_df, max_df, binary)
 
     vocab_path = experiment_path / str(min_df) / str(max_df) / str(int(binary))
