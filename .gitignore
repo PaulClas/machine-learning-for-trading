@@ -44,3 +44,8 @@ samples.py
 *.joblib
 *.npz
 *.txt
+*.bin
+*.npy
+*.state
+*.id2word
+*.model
