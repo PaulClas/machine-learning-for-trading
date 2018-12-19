@@ -25,6 +25,6 @@
 - [On Discriminative vs Generative Classifiers: A comparison of logistic regression and naive Bayes](https://ai.stanford.edu/~ang/papers/nips01-discriminativegenerative.pdf), Jordan, Ng, 2002
 - [The No-U-Turn Sampler: Adaptively Setting Path Lengths in Hamiltonian Monte Carlo](https://arxiv.org/abs/1111.4246), Matthew D. Hoffman, Andrew Gelman, 2011
 - [Bayesian estimation supersedes the t test](John K. Kruschke), Journal of Experimental Psychology, 2012
-
-
+- [Automatic Differentiation Variational Inference](https://arxiv.org/pdf/1603.00788.pdf)
+- [Variational Inference: A Review for Statisticians](https://arxiv.org/pdf/1601.00670.pdf), David Blei et al, 2018
 
