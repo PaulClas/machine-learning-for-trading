@@ -28,8 +28,6 @@
 - [TensorFlow Probability](https://github.com/tensorflow/probability)
 - [Pyro](http://pyro.ai/)
 
-
-
 ## References
 
 - [Tackling the Poor Assumptions of Naive Bayes Text Classifiers](http://people.csail.mit.edu/jrennie/papers/icml03-nb.pdf), Rennie, et al, MIT SAIL, 2003

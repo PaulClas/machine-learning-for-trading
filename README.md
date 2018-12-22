@@ -11,25 +11,25 @@
 ## Part 2: Machine Learning Fundamentals
 
 ### 06: The Machine Learning Process
-### 07: Linear Models for Regression & Classification
-### 08: Time Series Models: ARIMA, ARCH & VAR Models
-### 09: Decision Trees & Random Forests
-### 10: Gradient Boosting Machines
-### 11: Bayesian Machine Learning
+### 07: Linear Models: Regression & Classification
+### 08: Linear Time Series Models
+### 09: Bayesian Machine Learning
+### 10: Decision Trees & Random Forests
+### 11: Gradient Boosting Machines
 ### 12: Unsupervised Learning
 
 ## Part 3: Natural Language Processing
 
-### 13:	Sentiment Analysis
+### 13:	Working with Text Data
 ### 14:	Topic Modeling
-### 15:	word2vec and extensions
+### 15:	Word Embeddings
 
 ## Part 4: Deep & Reinforcement Learning
 
 ### 16:	Deep Learning: Design, Training & Tuning
+### 17:	Convolutional Neural Networks
 ### 18:	Recurrent Neural Networks
-### 18:	Convolutional Neural Networks
-### 19:	Transfer Learning
+### 19:	Unsupervised Deep Learning
 ### 20:	Reinforcement Learning
 
 ## Part 5: Conclusion & Next Steps
@@ -38,11 +38,7 @@
 
 ## Technical Requirements
 
-The code uses python 3.6 except where otherwise indicated.
-
-The `requirements.txt` file contains the requisite libraries and versions.
-
-Install using `pip install -r requirements.txt` from the repo root folder.
+The code uses Python 3.6 except where otherwise indicated. We recommend using [miniconda](https://conda.io/miniconda.html) with [environments ](https://conda.io/docs/user-guide/tasks/manage-environments.html) build from the `environment.yml` files contained in the directories for each chapter.
 
 ### General Purpose Libraries
 
@@ -50,7 +46,6 @@ Install using `pip install -r requirements.txt` from the repo root folder.
 -
 
 ### Data Science & Machine Learning Libraries
-
 
 - pandas
 - Scikit-Learn

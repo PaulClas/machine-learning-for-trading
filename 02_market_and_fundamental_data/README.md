@@ -1,7 +1,32 @@
 # Chapter 02: Market & Fundamental Data
 
+- Market Data
+    - Market microstructure
+    - Working with trading data
+        - The FIX protocol
+        - Working with Nasdaq TotalView-ITCH order-book data
+        - Regularizing tick data
+    - Remote data access using pandas
+    - The Investor Exchange
+    - Quantopian
+    - Zipline
+    - Quandl
+    - Other market-data providers
+- Fundamental data
+    - Financial statements data
+    - Automated processing – XBRL
+    - Building a fundamental data time series
 
-## Market Data
+Extracting the financial statements and notes dataset 25
+Retrieving all quarterly Apple filings 26
+Building a price/earnings time series 27
+Other fundamental data sources 29
+pandas_datareader – macro and industry data 29
+Efficient data storage with pandas
+
+## Notebooks
+
+### Market Data
 
 ### 01_NASDAQ_TotalView-ITCH_Order_Book
 
