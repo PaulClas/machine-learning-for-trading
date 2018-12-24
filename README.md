@@ -35,29 +35,3 @@
 ## Part 5: Conclusion & Next Steps
 
 ### 21:	What's Next?
-
-## Technical Requirements
-
-The code uses python 3.6 except where otherwise indicated.
-
-The `requirements.txt` file contains the requisite libraries and versions.
-
-Install using `pip install -r requirements.txt` from the repo root folder.
-
-### General Purpose Libraries
-
-- [JupyterLab](https://github.com/jupyterlab/jupyterlab)
--
-
-### Data Science & Machine Learning Libraries
-
-
-- pandas
-- Scikit-Learn
-- statsmodels
-- [Linear Models](https://github.com/bashtage/linearmodels) ([docs](https://bashtage.github.io/linearmodels/doc))
-- [ARCH](https://github.com/bashtage/arch) ([docs](http://bashtage.github.io/arch/doc/index.html))
-- gensim
-- seaborn
--
-
