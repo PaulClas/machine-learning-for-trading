@@ -1,77 +1,100 @@
 # Chapter 02: Market & Fundamental Data
 
-- Market Data
-    - Market microstructure
-    - Working with trading data
-        - The FIX protocol
-        - Working with Nasdaq TotalView-ITCH order-book data
-        - Regularizing tick data
-    - Remote data access using pandas
-    - The Investor Exchange
-    - Quantopian
-    - Zipline
-    - Quandl
-    - Other market-data providers
-- Fundamental data
-    - Financial statements data
-    - Automated processing – XBRL
-    - Building a fundamental data time series
+## How to work with Market Data
+###  Market microstructure
 
-Extracting the financial statements and notes dataset 25
-Retrieving all quarterly Apple filings 26
-Building a price/earnings time series 27
-Other fundamental data sources 29
-pandas_datareader – macro and industry data 29
-Efficient data storage with pandas
+- [Trading and Exchanges - Market Microstructure for Practitioners](https://global.oup.com/ushe/product/trading-and-exchanges-9780195144703?cc=us&lang=en&), Larry Harris, Oxford University Press, 2002
+- [World Federation of Exchanges](https://www.world-exchanges.org/our-work/statistics)
 
-## Notebooks
+### Working with Order Book data
 
-### Market Data
+#### The FIX protocol
 
-### 01_NASDAQ_TotalView-ITCH_Order_Book
+- [FIX Trading Standards](https://www.fixtrading.org/standards/)
+- Python: [Simplefix](https://github.com/da4089/simplefix)
+- C++ version: [quickfixengine](http://www.quickfixengine.org/)
+- Interactive Brokers [interface](https://www.interactivebrokers.com/en/index.php?f=4988)
 
-This directory contains the code to download NASDAQ ITCH TotalView sample data, parse the data and reconstruct the order book.
-
-### Resources
-
-#### FIX implementations
-
- - Python: [Simplefix](https://github.com/da4089/simplefix)
- - C++ version: [quickfixengine](http://www.quickfixengine.org/)
- - Interactive Brokers [interface](https://www.interactivebrokers.com/en/index.php?f=4988)
-
-#### ITCH Protocol
+#### Nasdaq TotalView-ITCH data
 
 - The ITCH [Specifications](http://www.nasdaqtrader.com/content/technicalsupport/specifications/dataproducts/NQTVITCHspecification.pdf)
 - [Sample Files](ftp://emi.nasdaq.com/ITCH/)
+
+#### Code Examples
+
+- The folder `NASDAQ TotalView ITCH Order Book` contains the notebooks to
+    - download NASDAQ Total View sample tick data,
+    - parse the messages from the binary source data
+    - reconstruct the order book for a given stock
+    - visualize order flow data
+    - normalize tick data
+- Binary Data services: the `struct` [module](https://docs.python.org/3/library/struct.html)
+
 
 #### Other protocols
 
  - Native exchange protocols [around the world](https://en.wikipedia.org/wiki/List_of_electronic_trading_protocols_
 
-## Fundamental Data
+### Access to Market Data
 
-### 01_NASDAQ_TotalView-ITCH_Order_Book
+#### Remote data access using pandas
 
-This folder contains the notebooks to
-- download NASDAQ Total View sample tick data,
-- parse the messages from the binary source data
-- reconstruct the order book for a given stock
-- visualize order flow data
-- normalize tick data
+- read_html [docs](http://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_html.html?highlight=pandas%20io%20read_html)
+- S&P 500 constituents from [Wikipedia](https://en.wikipedia.org/wiki/List_of_S%26P_500_companies)
+- `pandas-datareader`[docs](https://pandas-datareader.readthedocs.io/en/latest/index.html)
+
+#### Code Examples
+
+The folder `data providers` contains examples to use various data providers.
+
+Relevant sources include:
+
+- Quandl [docs](https://docs.quandl.com/docs) and Python [API](https://www.quandl.com/tools/python﻿)
+- [Quantopian](https://www.quantopian.com/posts)
+- [Zipline](http://www.zipline.io/﻿)
+- [LOBSTER](https://lobsterdata.com/)
+- [The Investor Exchange](https://iextrading.com/﻿)
+- [Money.net](https://www.money.net/)
+- [Trading Economic](https://tradingeconomics.com/)
+- [Barchart](https://www.barchart.com/)
+- [Alpha Vantage](https://www.alphavantage.co/﻿)
+- [Alpha Trading Labs](https://www.alphatradinglabs.com/)
+
+News
+- [Bloomberg and Reuters lose data share to smaller rivals](https://www.ft.com/content/622855dc-2d31-11e8-9b4b-bc4b9f08f381), FT, 2018
+
+## How to work with Fundamental data
+
+### Financial statement data
+
+#### Automated processing using XBRL markup
+
+- [SEC Standard EDGAR Taxonomies](https://www.sec.gov/info/edgar/edgartaxonomies.shtml)
+- [ EDGAR Public Dissemination Service (PDS)](https://www.sec.gov/oit/announcement/public-dissemination-service-system-contact.html)
+- [SEC Really Simple Syndication (RSS) Feeds](https://www.sec.gov/structureddata/rss-feeds-submitted-filings)
+- [SEC EDGAR index files](https://www.sec.gov/edgar/searchedgar/accessing-edgar-data.htm)
+- [SEC seach traffic log files](https://www.sec.gov/dera/data/edgar-log-file-data-set.html)
 
 
-### 02_EDGAR
+#### Building a fundamental data time series
+- [SEC Financial Statements & Notes Data Set](https://www.sec.gov/dera/data/financial-statement-and-notes-data-set.html)
 
-This folder contains the code to download and parse EDGAR data in XBRL format.
 
-## Resources
 
-### 03_Data Providers
+#### Code Examples
 
-This folder contains examples to use various data providers.
+The folder EDGAR contains the code to download and parse EDGAR data in XBRL format.
 
-### Python Libraries
+### Other fundamental data sources
+
+- [Compilation of macro resources by the Yale Law School](https://library.law.yale.edu/news/75-sources-economic-data-statistics-reports-and-commentary)
+- [Capital IQ](www.capitaliq.com)
+- [Compustat](www.compustat.com)
+- [MSCI Barra](www.mscibarra.com)
+- [Northfield Information Services](www.northinfo.com)
+- [Quantitative Services Group](www.qsg.com)
+
+### Efficient data storage with pandas
 
 #### HDF Format
 
@@ -85,28 +108,3 @@ This folder contains examples to use various data providers.
 - [PyArrow: Parquet for Python](https://arrow.apache.org/docs/python/parquet.html)
 - [Development update: High speed Apache Parquet in Python with Apache Arrow](http://wesmckinney.com/blog/python-parquet-update/)
 
-
-#### Quantopian
-
-- [Binary Data services: `struct`](https://docs.python.org/3/library/struct.html)
-
-
-#### Quandl
-
-#### pandas_datareader
-
-
-## References
-
-- [Trading and Exchanges - Market Microstructure for Practitioners](https://global.oup.com/ushe/product/trading-and-exchanges-9780195144703?cc=us&lang=en&), Larry Harris, Oxford University Press, 2002
-- [World Federation of Exchanges](https://www.world-exchanges.org/our-work/statistics)
-- [FIX Trading Standards](https://www.fixtrading.org/standards/)
-
-## Data Sources
-
-- [Compilation of macro resources by the Yale Law School](https://library.law.yale.edu/news/75-sources-economic-data-statistics-reports-and-commentary)
-- [Capital IQ](www.capitaliq.com)
-- [Compustat](www.compustat.com)
-- [MSCI Barra](www.mscibarra.com)
-- [Northfield Information Services](www.northinfo.com)
-- [Quantitative Services Group](www.qsg.com)

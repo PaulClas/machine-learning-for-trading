@@ -1,70 +1,46 @@
-## Chapter 04: Alpha Factor Research & Evaluation
+# Chapter 04: Alpha Factor Research & Evaluation
+
+## Engineering Alpha Factor
+
+### Important Factor Categories
+
+- [Dissecting Anomalies](http://schwert.ssb.rochester.edu/f532/ff_JF08.pdf) by Eugene Fama and Ken French (2008)
+- [Explaining Stock Returns: A Literature Review](https://www.ifa.com/pdfs/explainingstockreturns.pdf) by James L. Davis (2001)
+- [Market Efficiency, Long-Term Returns, and Behavioral Finance](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=15108) by Eugene Fama (1997)
+- [The Efficient Market Hypothesis and It's Critics](https://pubs.aeaweb.org/doi/pdf/10.1257/089533003321164958) by Burton Malkiel (2003)
+- [The New Palgrave Dictionary of Economics](https://www.palgrave.com/us/book/9780333786765) (2008) by Steven Durlauf and Lawrence Blume, 2nd ed.
+- [Anomalies and Market Efficiency](https://www.nber.org/papers/w9277.pdf) by G. William Schwert25 (Ch. 15 in Handbook of the- "Economics of Finance", by Constantinides, Harris, and Stulz, 2003)
+- [Investor Psychology and Asset Pricing](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=265132), by David Hirshleifer (2001)
+
+### How to transform Data into Factors
+
+- The notebook `feature_engineering.ipynb` in the data directory illustrates how to engineer basic factors.
+
+
+#### References
+
+- [The Barra Equity Risk Model Handbook](https://www.alacra.com/alacra/help/barra_handbook_GEM.pdf)
+- [Active Portfolio Management: A Quantitative Approach for Producing Superior Returns and Controlling Risk](https://www.amazon.com/Active-Portfolio-Management-Quantitative-Controlling/dp/0070248826) by Richard Grinold and Ronald Kahn, 1999
+- [Modern Investment Management: An Equilibrium Approach](https://www.amazon.com/Modern-Investment-Management-Equilibrium-Approach/dp/0471124109) by Bob Litterman, 2003
+- [Quantitative Equity Portfolio Management: Modern Techniques and Applications](https://www.crcpress.com/Quantitative-Equity-Portfolio-Management-Modern-Techniques-and-Applications/Qian-Hua-Sorensen/p/book/9781584885580) by Edward Qian, Ronald Hua, and Eric Sorensen
+- [Spearman Rank Correlation](https://statistics.laerd.com/statistical-guides/spearmans-rank-order-correlation-statistical-guide.php)
+
+#### Code Examples
+
+## Seeking Signals - How to use `zipline`
 
 This section introduces the algorithmic trading simulator [`zipline`](http://www.zipline.io/index.html) and the [`alphalens`](http://quantopian.github.io/alphalens/) library for the performance analysis of predictive (alpha) factors.
 
-### `zipline` Installation
+### Code Examples
+- `zipline` installation: see [docs](http://www.zipline.io/index.html) for more detail.
 
-The following is an excerpt from the `zipline` installation instructions. See [docs](http://www.zipline.io/index.html) for more detail.
+## Separating signal and noise – how to use alphalens
 
+### The Information Coefficient
 
-#### Installing With ``pip``
+### Code Examples
 
-
-Assuming you have all required (see note below) non-Python dependencies, you can install Zipline with ``pip`` via:
-
-
-    $ pip install zipline
-
-**Note:** Installing Zipline via ``pip`` is slightly more involved than the average Python package.  Simply running ``pip install zipline`` will likely fail if you've never installed any scientific Python packages before.
-
-There are two reasons for the additional complexity:
-
-1. Zipline ships several C extensions that require access to the CPython C API.
-   In order to build the C extensions, ``pip`` needs access to the CPython
-   header files for your Python installation.
-
-2. Zipline depends on [`numpy`](http://www.numpy.org/>), the core library for
-   numerical array computing in Python.  Numpy depends on having the [`LAPACK`](http://www.netlib.org/lapack) linear algebra routines available.
-
-Because LAPACK and the CPython headers are binary dependencies, the correct way to install them varies from platform to platform.  On Linux, users generally acquire these dependencies via a package manager like `apt`, `yum`, or `pacman`.  On OSX, `[Homebrew](http://www.brew.sh) is a popular choice providing similar functionality.
-
-See the full [Zipline Install Documentation](https://github.com/quantopian/zipline#installation) for more information on acquiring binary dependencies for your specific platform.
-
-#### Installing with `conda`
-
-Another way to install Zipline is via the `conda` package manager, which comes as part of [`Anaconda`](http://continuum.io/downloads) or can be installed via `pip install conda`.
-
-Once set up, you can install Zipline from the `Quantopian` channel:
-
-    $ conda install -c Quantopian zipline
-
-Currently supported platforms include:
-
--  GNU/Linux 64-bit
--  OSX 64-bit
--  Windows 64-bit
-
-.. note::
-
-   Windows 32-bit may work; however, it is not currently included in
-   continuous integration tests.
-
-
-### `alphalens` Installation
-
-The following is an excerpt from the `alphalens` installation instructions. See [docs](http://quantopian.github.io/alphalens/) for more detail.
-
-Install with pip:
-
-    pip install alphalens
-
-Install with conda:
-
-    conda install -c conda-forge alphalens
-
-Install from the master branch of the Alphalens repository (development code):
-
-    pip install git+https://github.com/quantopian/alphalens
+- `alphalens` installation see [docs](http://quantopian.github.io/alphalens/) for detail
 
 Alphalens depends on:
 
@@ -75,22 +51,13 @@ Alphalens depends on:
 -  [`seaborn`](https://github.com/mwaskom/seaborn)
 -  [`statsmodels`](https://github.com/statsmodels/statsmodels)
 
-## References
 
-### Empirical research on pricing anomalies and risk factors
+## Alternative Algorithmic Trading Libraries
 
-- "Dissecting Anomalies" by Eugene Fama and Ken French (2008)
-- "Explaining Stock Returns: A Literature Review" by James L. Davis (2001)
-- "Market Efficiency, Long-Term Returns, and Behavioral Finance" by Eugene Fama (1997)
-- "The Efficient Market Hypothesis and It's Critics" by Burton Malkiel (2003)
-- "The New Palgrave Dictionary of Economics" (2008) by Steven Durlauf and Lawrence Blume, 2nd ed.
-- "Anomalies and Market Efficiency" by G. William Schwert25 (Ch. 15 in Handbook of the
-- "Economics of Finance", by Constantinides, Harris, and Stulz, 2003)
-- "Investor Psychology and Asset Pricing", by David Hirshleifer (2001)
-
-### Identification and modeling of alpha factors
-
-- The Barra Equity Risk Model Handbook
-- Active Portfolio Management: A Quantitative Approach for Producing Superior Returns and Controlling Risk by Richard Grinold and Ronald Kahn
-- Modern Investment Management: An Equilibrium Approach by Bob Litterman
-- Quantitative Equity Portfolio Management: Modern Techniques and Applications by Edward Qian, Ronald Hua, and Eric Sorensen
+- [QuantConnect](https://www.quantconnect.com/)
+- [Alpha Trading Labs](https://www.alphalabshft.com/)
+- [WorldQuant](https://www.worldquantvrc.com/en/cms/wqc/home/)
+- Python Algorithmic Trading Library [PyAlgoTrade](http://gbeced.github.io/pyalgotrade/)
+- [pybacktest](https://github.com/ematvey/pybacktest)
+- [Trading with Python](http://www.tradingwithpython.com/)
+- [Interactive Brokers](https://www.interactivebrokers.com/en/index.php?f=5041)

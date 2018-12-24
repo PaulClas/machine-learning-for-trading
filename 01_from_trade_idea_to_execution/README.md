@@ -1,31 +1,27 @@
 # Chapter 01: From Idea to Execution
 
-## Content
-- How to read this book
-- The rise of ML in the investment industry
-    - From electronic to high-frequency trading
-    - Factor investing and smart beta funds
-    - Algorithmic pioneers outperform humans at scale
-    - ML and alternative data
-- Design and execution of a trading strategy
-    - Sourcing and managing data
-    - Alpha factor research and evaluation
-    - Portfolio optimization and risk management
-    - Strategy backtesting
-- ML and algorithmic trading strategies
-    - Categories of algorithmic strategies
-    - How ML fits into the process
-        - Generating trade ideas
-        - Testing trade ideas
-        - Allocating assets
-        - Online learning
-- Focus and organization of the book
+## How to read this book
+## The rise of ML in the investment industry
+### From electronic to high-frequency trading
+- [High Frequency Trading: Overview of Recent Developments](https://fas.org/sgp/crs/misc/R44443.pdf), Congressional Research Service, 2016
+### Factor investing and smart beta funds
+### Algorithmic pioneers outperform humans at scale
+### ML and alternative data
+
+- [Can We Predict the Financial Markets Based on Google's Search Queries?](https://onlinelibrary.wiley.com/doi/abs/10.1002/for.2446), Perlin, et al, 2016, Journal of Forecasting
+
+## Design and execution of a trading strategy
+### Sourcing and managing data
+### Alpha factor research and evaluation
+### Portfolio optimization and risk management
+### Strategy backtesting
+## ML and algorithmic trading strategies
+### Categories of algorithmic strategies
+### How ML fits into the process
 
 ## References
 
-- [Can We Predict the Financial Markets Based on Google's Search Queries?](https://onlinelibrary.wiley.com/doi/abs/10.1002/for.2446), Perlin, et al, 2016, Journal of Forecasting
 - [The fundamental law of active management](http://jpm.iijournals.com/content/15/3/30), Richard C. Grinold, The Journal of Portfolio Management Spring 1989, 15 (3) 30-37
-- [High Frequency Trading: Overview of Recent Developments](https://fas.org/sgp/crs/misc/R44443.pdf), Congressional Research Service, 2016
 - [The relationship between return and market value of common stocks](https://www.sciencedirect.com/science/article/pii/0304405X81900180), Rolf Banz,Journal of Financial Economics, March 1981
 - [The Arbitrage Pricing Theory: Some Empirical Results](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1540-6261.1981.tb00444.x), Marc Reinganum, Journal of Finance, 1981
 - [The Relationship between Earnings' Yield, Market Value and Return for NYSE Common Stock](https://pdfs.semanticscholar.org/26ab/311756099c8f8c4e528083c9b90ff154f98e.pdf), Sanjoy Basu, Journal of Financial Economics, 1982
@@ -60,17 +56,16 @@
 
 ## Resources
 
-
 ### Books
 
 - [Advances in Financial Machine Learning](https://www.wiley.com/en-us/Advances+in+Financial+Machine+Learning-p-9781119482086), Marcos Lopez de Prado, 2018
-
+- [Quantresearch](http://www.quantresearch.info/index.html) by Marcos López de Prado
+- [Quantitative Trading](http://epchan.blogspot.com/), Ernest Chan
 #### Machine Learning
 
 - [Machine Learning](http://www.cs.cmu.edu/~tom/mlbook.html), Tom Mitchell, McGraw Hill, 1997
 - [An Introduction to Statistical Learning](http://www-bcf.usc.edu/~gareth/ISL/), Gareth James et al.
     - Excellent reference for essential machine learning concepts, available free online
-
 - [Bayesian Reasoning and Machine Learning](http://web4.cs.ucl.ac.uk/staff/D.Barber/textbook/091117.pdf), Barber, D., Cambridge University Press, 2012 (updated version available on author's website)
 
 ### Courses
@@ -81,7 +76,13 @@
     - Andrew Ng’s introductory deep learning course
 
 
-### Setup
+### Python Libraries
 
+- matplotlib [docs]( <https://github.com/matplotlib/matplotlib)
+-  numpy [docs](https://github.com/numpy/numpy)
+-  pandas [docs](https://github.com/pydata/pandas)
+-  scipy [docs](https://github.com/scipy/scipy)
+-  seaborn [docs](https://github.com/mwaskom/seaborn)
+-  statsmodels [docs](https://github.com/statsmodels/statsmodels)
 - [Boosting numpy: Why BLAS Matters](http://markus-beuckelmann.de/blog/boosting-numpy-blas.html)
 

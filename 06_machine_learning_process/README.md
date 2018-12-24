@@ -1,18 +1,38 @@
 # Chapter 06: Machine Learning
 
-## Content
+## Learning from Data
 
-### 01 The Machine Learning Workflow
+## The Machine Learning Workflow
+
+### Basic Walkthrough: K-nearest neighbors
+
+- sklearn [Documentation](http://scikit-learn.org/stable/documentation.html)
+
+#### Code Examples: Workflow
+
+The directory k-nearest neighbors contains the `machine_learning_workflow.ipynb` notebook with several examples that illustrate the machine learning workflow using a simple dataset of house prices.
+
+### Frame the problem: goals & metrics
+
+### Collect & prepare the data
+
+### How to explore, extract and engineer features
+
+#### Code Example: Mutual Information
+
+The notebook mutual_information.ipynb applies information theory to the financial data we created in Chapter 4, Alpha Factors – Research and Evaluation.
+
+### Select an ML algorithm
+
+### Design and tune the model
+
+#### Code Example: Bias-Variance Trade-Off
 
 
-### 02 Bias Variance Trade-Off
+### How to use cross-validation for model selection
 
+#### Code Example
 
-### 03 Cross Validation
+- Yellowbrick: Machine Learning Visualization[docs](http://www.scikit-yb.org/en/latest/)
 
-
-## References
-
-- [sklearn Documentation](http://scikit-learn.org/stable/documentation.html)
-- [Yellowbrick: Machine Learning Visualization](http://www.scikit-yb.org/en/latest/)
-- [Advances in Financial Machine Learning](https://www.wiley.com/en-us/Advances+in+Financial+Machine+Learning-p-9781119482086), Lopez de Prado, 2018
+### Challenges with cross-validation in finance

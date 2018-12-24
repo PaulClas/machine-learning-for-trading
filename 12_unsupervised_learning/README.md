@@ -1,10 +1,12 @@
 # Chapter 12: Unsupervised Learning
 
+## Dimensionality reduction
 
-## Content
+### The curse of dimensionality
 
+#### Code Examples
 
-## References
+The notebook `curse_of_dimensionality` contains the simulation used in this section.
 
 ### Linear Dimensionality Reduction
 
@@ -15,6 +17,9 @@
 - [Mixtures of Probabilistic Principal Component Analysers](http://www.miketipping.com/papers/met-mppca.pdf), Michael E. Tipping and Christopher M. Bishop, Neural Computation 11(2), pp 443–482. MIT Press
 - [Finding Structure with Randomness: Probabilistic Algorithms for Constructing Approximate Matrix Decompositions](http://users.cms.caltech.edu/~jtropp/papers/HMT11-Finding-Structure-SIREV.pdf), N. Halko†, P. G. Martinsson, J. A. Tropp, SIAM REVIEW, Vol. 53, No. 2, pp. 217–288
 - [Relationship between SVD and PCA. How to use SVD to perform PCA?](https://stats.stackexchange.com/questions/134282/relationship-between-svd-and-pca-how-to-use-svd-to-perform-pca), excellent technical CrossValidated StackExchange answer with visualization
+
+##### Visualizing PCA in 2D
+
 
 #### ICA
 
@@ -52,7 +57,7 @@
 - [t-Distributed Stochastic Neighbor Embedding Wins Merck Viz Challenge](http://blog.kaggle.com/2012/11/02/t-distributed-stochastic-neighbor-embedding-wins-merck-viz-challenge/), Kaggle Blog 2016
 - [t-SNE: Google Tech Talk](https://www.youtube.com/watch?v=RJVL80Gg3lA&list=UUtXKDgv1AVoG88PLl8nGXmw), van der Maaten, 2013
 
-#### U
+#### UMAP
 
 - [UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction](https://arxiv.org/abs/1802.03426), Leland McInnes, John Healy, 2018
 
