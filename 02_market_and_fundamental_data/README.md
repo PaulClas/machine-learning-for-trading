@@ -98,13 +98,13 @@ The folder EDGAR contains the code to download and parse EDGAR data in XBRL form
 
 #### HDF Format
 
-- [Pandas HDF5](http://pandas.pydata.org/pandas-docs/version/0.22/io.html#hdf5-pytables)
+- Pandas [HDF5](http://pandas.pydata.org/pandas-docs/version/0.22/io.html#hdf5-pytables)
 - [HDF Support Portal](http://portal.hdfgroup.org/display/support)
-- [PyTables](https://www.pytables.org/)
+- PyTables [docs](https://www.pytables.org/)
 
 #### Parquet Format
 
-- [Apache Parquet](https://parquet.apache.org/)
-- [PyArrow: Parquet for Python](https://arrow.apache.org/docs/python/parquet.html)
-- [Development update: High speed Apache Parquet in Python with Apache Arrow](http://wesmckinney.com/blog/python-parquet-update/)
+- Apache Parquet [docs](https://parquet.apache.org/)
+- PyArrow: Parquet for Python [docs](https://arrow.apache.org/docs/python/parquet.html)
+- Development update: High speed Apache Parquet in Python with Apache Arrow by Wes McKinney [blog](http://wesmckinney.com/blog/python-parquet-update/)
 
