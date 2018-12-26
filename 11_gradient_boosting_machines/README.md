@@ -1,14 +1,39 @@
 # Chapter 10: Gradient Boosting Machines
 
-## References
+## Adaptive Boosting
+### The AdaBoost Algorithm
+- [A Decision-Theoretic Generalization of On-Line Learning and an Application to Boosting](http://www.face-rec.org/algorithms/Boosting-Ensemble/decision-theoretic_generalization.pdf), Y. Freund, R. Schapire, 1997.
 
-### Gradient Boosting
+### AdaBoost with sklearn
+
+- `sklearn` AdaBoost [docs](https://scikit-learn.org/stable/modules/ensemble.html#adaboost)
+
+#### Code Examples
+
+The notebook `gbm_baseline` containts the code for this section.
+
+## Gradient Boosting Machines
+
+- [Greedy function approximation: A gradient boosting machine](https://statweb.stanford.edu/~jhf/ftp/trebst.pdf), Jerome H. Friedman, 1999
+
+### How to train and tune GBM
+
+### Gradient Boosting with sklearn
+
+- `scikit-klearn` Gradient Boosting [docs](https://scikit-learn.org/stable/modules/ensemble.html#gradient-boosting)
+
+#### Code Examples
+
+The notebook `gbm_baseline` containts the code for this section.
+
+
 - [Rashmi Korlakai Vinayak, Ran Gilad-Bachrach. “DART: Dropouts meet Multiple Additive Regression Trees.”](http://www.jmlr.org/proceedings/papers/v38/korlakaivinayak15.pdf)
 
-### Libraries
+## Fast, scalable GBM implementations
 
 - [xgboost - LightGBM Parameter Comparison](https://sites.google.com/view/lauraepp/parameters)
 - [xgboost vs LightGBM Benchmarks](https://sites.google.com/view/lauraepp/new-benchmarks)
+- [Depth- vs Leaf-wise growth](https://datascience.stackexchange.com/questions/26699/decision-trees-leaf-wise-best-first-and-level-wise-tree-traverse)
 
 #### sklearn
 
