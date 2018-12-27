@@ -1,8 +1,8 @@
 # Machine Learning for Algorithmic Trading using Python
 
-## Part 1: Key Elements of an Algorithmic Trading Strategy
+## Part 1: How to Design a Trading Strategy
 
-### 01: Machine Learning for Trading
+### 01 Machine Learning for Trading
 ### 02: Market & Fundamental Data
 ### 03: Alternative Data for Finance
 ### 04: Research & Evaluation of Alpha Factors
