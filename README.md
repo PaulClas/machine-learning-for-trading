@@ -26,12 +26,12 @@
 
 ## Part 4: Deep & Reinforcement Learning
 
-### 16:	Deep Learning: Design, Training & Tuning
+### 16:	Deep Learning
 ### 17:	Recurrent Neural Networks
 ### 18:	Convolutional Neural Networks
 ### 19:	Autoencoders & Generative Adversarial Networks
 ### 20:	Reinforcement Learning
 
-## Part 5: Conclusion & Next Steps
+## Part 5: Conclusion
 
 ### 21:	What's Next?
