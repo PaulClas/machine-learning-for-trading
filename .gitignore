@@ -49,3 +49,9 @@ samples.py
 *.state
 *.id2word
 *.model
+*.zip
+16_deep_learning
+17_recurrent_neural_nets
+18_convolutions_neural_nets
+19_autoencoders_gan
+20_reinforcement_learning
