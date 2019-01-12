@@ -175,7 +175,6 @@ dependencies:
   - pysocks=1.6.8
   - pytables=3.4.4
   - pytest=4.0.2
-  - python=3.7.1
   - python-dateutil=2.7.5
   - pytz=2018.7
   - pyzmq=17.1.2
@@ -225,4 +224,3 @@ dependencies:
     - tables==3.4.4
     - torch==1.0.0
     - xmltodict==0.11.0
-prefix: /home/stefan/.pyenv/versions/miniconda3-latest/envs/ml4t
