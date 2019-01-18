@@ -1,0 +1,214 @@
+message_type,name,value,length,offset,notes
+S,stock_locate,integer,2,1,Always 0
+S,tracking_number,integer,2,3,Nasdaq internal tracking number
+S,timestamp,integer,6,5,Nanoseconds since midnight
+S,event_code,alpha,1,11,See System Event Codes below
+R,stock_locate,integer,2,1,Locate Code uniquely assigned to the security symbol for the day.
+R,tracking_number,integer,2,3,Nasdaq internal tracking number
+R,timestamp,integer,6,5,Time at which the directory message was generated. Refer to Data Types for field processing notes.
+R,stock,alpha,8,11,Denotes the security symbol for the issue in the Nasdaq execution system.
+R,market_category,alpha,1,19,Indicates Listing market or listing market tier for the issue
+R,financial_status_indicator,alpha,1,20,"For Nasdaq listed issues, this field indicates when a firm is not in compliance with Nasdaq continued listing requirements"
+R,round_lot_size,integer,4,21,Denotes the number of shares that represent a round lot for the issue
+R,round_lots_only,alpha,1,25,Indicates if Nasdaq system limits order entry for issue
+R,issue_classification,alpha,1,26,Identifies the security class for the issue as assigned by Nasdaq. See Appendix for allowable values
+R,issue_sub_type,alpha,2,27,Identifies the security sub-type for the issue as assigned by Nasdaq. See Appendix for allowable values
+R,authenticity,alpha,1,29,"Denotes if an issue or quoting participant record is set-up in Nasdaq systems in a live/production, test, or demo state. Please note that firms should only show live issues and quoting participants on public quotation displays."
+R,short_sale_threshold_indicator,alpha,1,30,Indicates if a security is subject to mandatory close-out of short sales under SEC Rule 203(b)(3).
+R,ipo_flag,alpha,1,31,Indicates if the Nasdaq security is set up for IPO Indicates if the Nasdaq security is set up for IPO release. This field is intended to help Nasdaq market participant firms comply with FINRA Rule 5131(b).
+R,luld_reference_price_tier,alpha,1,32,Indicates which Limit Up / Limit Down price band calculation parameter is to be used for the instrument.
+R,etp_flag,alpha,1,33,Indicates whether the security is an exchange traded product (ETP)
+R,etp_leverage_factor,integer,4,34,Tracks the integral relationship of the ETP to the underlying index
+R,inverse_indicator,alpha,1,38,Indicates the directional relationship between the ETP and Underlying Index
+H,stock_locate,integer,2,1,Locate code identifying the security
+H,tracking_number,integer,2,3,Nasdaq internal tracking number
+H,timestamp,integer,6,5,Nanoseconds since midnight
+H,stock,alpha,8,11,"Stock symbol, right padded with spaces"
+H,trading_state,alpha,1,19,"Indicates the current trading state for the stock. Allowable values: 
+H = Halted across all U.S. equity markets / SROs 
+P = Paused across all U.S. equity markets / SROs (Nasdaq-listed securities only) 
+Q = Quotation only period for cross-SRO halt or pause
+T = Trading on Nasdaq"
+H,reserved,alpha,1,20,Reserved.
+H,reason,alpha,4,21,Trading Action reason.
+Y,stock_locate,integer,2,1,Locate code identifying the security
+Y,tracking_number,integer,2,3,Nasdaq internal tracking number
+Y,timestamp,integer,6,5,Nanoseconds since midnight
+Y,stock,alpha,8,11,"Stock symbol, right padded with spaces"
+Y,reg_sho_action,alpha,1,19,"Denotes the Reg SHO Short Sale Price Test Restriction status for the issue at the time of the message dissemination. 
+Allowable values are:
+0 = No price test in place     
+1 = Reg SHO Short Sale Price Test Restriction in effect due to an intra-day price drop in security     
+2 = Reg SHO Short Sale Price Test Restriction remains in effect"
+L,stock_locate,integer,2,1,Locate code identifying the security
+L,tracking_number,integer,2,3,Nasdaq internal tracking number
+L,timestamp,integer,6,5,Nanoseconds since midnight
+L,mpid,alpha,4,11,Denotes the market participant identifier for which the position message is being generated
+L,stock,alpha,8,15,"Stock symbol, right padded with spaces"
+L,primary_market_maker,alpha,1,23,"Indicates if the market participant firm qualifies as a Primary Market Maker in accordance with Nasdaq marketplace rules 
+Y = primary market maker   
+N = non-primary market maker"
+L,market_maker_mode,alpha,1,24,"Indicates the quoting participant's registration status in relation to SEC Rules 101 and 104 of Regulation M
+N = normal
+P = passive
+S = syndicate
+R = pre-syndicate
+L = penalty"
+L,market_participant_state,alpha,1,25,"Indicates the market participant's current registration status in the issue
+A = Active
+E = Excused/Withdrawn
+W = Withdrawn
+S = Suspended
+D = Deleted"
+V,stock_locate,integer,2,1,Always set to 0
+V,tracking_number,integer,2,3,Nasdaq internal tracking number
+V,timestamp,integer,6,5,Time at which the MWCB Decline Level message was generated
+V,level_1,price_8,8,11,Denotes the MWCB Level 1 Value.
+V,level_2,price_8,8,19,Denotes the MWCB Level 2 Value.
+V,level_3,price_8,8,27,Denotes the MWCB Level 3 Value.
+W,stock_locate,integer,2,1,Always set to 0
+W,tracking_number,integer,2,3,Nasdaq internal tracking number
+W,timestamp,integer,6,5,Time at which the MWCB Breaker Status message was generated
+W,breached_level,alpha,1,11,Denotes the MWCB Level that was breached. 1 = Level 1 2 = Level 2 3 = Level 3
+K,stock_locate,integer,2,1,Always set to 0
+K,tracking_number,integer,2,3,Nasdaq internal tracking number
+K,timestamp,integer,6,5,Time at which the IPO Quoting Period Update message was generated
+K,stock,alpha,8,11,"Stock symbol, right padded with spaces"
+K,ipo_quotation_release_time,integer,4,19,"Denotes the IPO release time, in seconds since midnight, for quotation to the nearest second. 
+NOTE: If the quotation period is being canceled/postponed, we should state that: 
+1. IPO Quotation Time will be set to 0 
+2. 2. IPO Price will be set to 0"
+K,ipo_quotation_release_qualifier,alpha,1,23,"A = Anticipated Quotation Release Time: 
+This value would be used when Nasdaq Market Operations initially enters the IPO instrument for release 
+C = IPO Release Canceled/Postponed: 
+This value would be sued when Nasdaq Market Operations cancels or postpones the release of the new IPO instrument"
+K,ipo_price,price_4,4,24,"Denotes the IPO Price to be used for intraday net change calculations 
+Prices are given in decimal format with 6 whole number places followed by 4 decimal digits. The whole number portion is padded on the left with spaces; the decimal portion is padded on the right with zeroes. The decimal point is implied by position, it does not appear inside the price field"
+J,stock_locate,integer,2,1,Locate code identifying the security
+J,tracking_number,integer,2,3,Nasdaq internal tracking number
+J,timestamp,integer,6,5,Nanoseconds past midnight
+J,stock,alpha,8,11,"Stock symbol, right padded with spaces"
+J,auction_collar_reference_price,price_4,4,19,Reference price used to set the Auction Collars
+J,upper_auction_collar_price,price_4,4,23,Indicates the price of the Upper Auction Collar Threshold
+J,lower_auction_collar_price,price_4,4,27,Indicates the price of the Lower Auction Collar Threshold
+J,auction_collar_extension,integer,4,31,Indicates the number of the extensions to the Reopening Auction
+h,stock_locate,integer,2,1,Locate code uniquely assigned to the security symbol for the day.
+h,tracking_number,integer,2,3,Nasdaq internal tracking number
+h,timestamp,integer,6,5,Time at which the Operational Halt message was generated. Refer to Data Types for field processing notes.
+h,stock,alpha,8,11,Denotes the security symbol for the issue in Nasdaq execution system
+h,market_code,alpha,1,19,"Q: Nasdaq
+B: BX
+X: PS"
+h,operational_halt_action,alpha,1,20,"H: Operationally Halted on the identified Market
+T: Operational Halt has been lifted and Trading resumed"
+A,stock_locate,integer,2,1,Locate code identifying the security
+A,tracking_number,integer,2,3,Nasdaq internal tracking number
+A,timestamp,integer,6,5,Nanoseconds since midnight.
+A,order_reference_number,integer,8,11,The unique reference number assigned to the new order at the time of receipt.
+A,buy_sell_indicator,alpha,1,19,The type of order being added. B = Buy Order. S = Sell Order.
+A,shares,integer,4,20,The total number of shares associated with the order being added to the book.
+A,stock,alpha,8,24,"Stock symbol, right padded with spaces"
+A,price,price_4,4,32,The display price of the new order. Refer to Data Types for field processing notes.
+F,stock_locate,integer,2,1,Locate code identifying the security
+F,tracking_number,integer,2,3,Nasdaq internal tracking number
+F,timestamp,integer,6,5,Nanoseconds since midnight.
+F,order_reference_number,integer,8,11,The unique reference number assigned to the new order at the time of receipt.
+F,buy_sell_indicator,alpha,1,19,The type of order being added. B = Buy Order. S = Sell Order.
+F,shares,integer,4,20,The total number of shares associated with the order being added to the book
+F,stock,alpha,8,24,"Stock symbol, right padded with spaces"
+F,price,price_4,4,32,The display price of the new order. Refer to Data Types for field processing notes.
+F,attribution,alpha,4,36,Nasdaq Market participant identifier associated with the entered order
+E,stock_locate,integer,2,1,Locate code identifying the security
+E,tracking_number,integer,2,3,Nasdaq internal tracking number
+E,timestamp,integer,6,5,Nanoseconds since midnight
+E,order_reference_number,integer,8,11,The unique reference number assigned to the new order at the time of receipt
+E,executed_shares,integer,4,19,The number of shares executed
+E,match_number,integer,8,23,The Nasdaq generated day unique Match Number of this execution. The Match Number is also referenced in the Trade Break Message
+C,stock_locate,integer,2,1,Locate code identifying the security
+C,tracking_number,integer,2,3,Nasdaq internal tracking number
+C,timestamp,integer,6,5,Nanoseconds since midnight
+C,order_reference_number,integer,8,11,The unique reference number assigned to the new order at the time of receipt
+C,executed_shares,integer,4,19,The number of shares executed
+C,match_number,integer,8,23,The Nasdaq generated day unique Match Number of this execution. The Match Number is also referenced in the Trade Break Message
+C,printable,alpha,1,31,"Indicates if the execution should be reflected on time and sales displays and volume calculations. 
+N = Non-Printable, 
+Y = Printable"
+C,execution_price,price_4,4,32,The Price at which the order execution occurred. Refer to Data Types for field processing notes
+X,stock_locate,integer,2,1,Locate code identifying the security
+X,tracking_number,integer,2,3,Nasdaq internal tracking number
+X,timestamp,integer,6,5,Nanoseconds since midnight
+X,order_reference_number,integer,8,11,The reference number of the order being canceled
+X,cancelled_shares,integer,4,19,The number of shares being removed from the display size of the order as a result of a cancellation
+D,stock_locate,integer,2,1,Locate code identifying the security
+D,tracking_number,integer,2,3,Nasdaq internal tracking number
+D,timestamp,integer,6,5,Nanoseconds since midnight
+D,order_reference_number,integer,8,11,The reference number of the order being canceled
+U,stock_locate,integer,2,1,Locate code identifying the security
+U,tracking_number,integer,2,3,Nasdaq internal tracking number
+U,timestamp,integer,6,5,Nanoseconds since midnight
+U,original_order_reference_number,integer,8,11,The original order reference number of the order being replaced
+U,new_order_reference_number,integer,8,19,"The new reference number for this order at time of replacement 
+Please note that the Nasdaq system will use this new order reference number for all subsequent updates"
+U,shares,integer,4,27,The new total displayed quantity
+U,price,price_4,4,31,The new display price for the order
+P,stock_locate,integer,2,1,Locate code identifying the security
+P,tracking_number,integer,2,3,Nasdaq internal tracking number
+P,timestamp,integer,6,5,Nanoseconds since midnight.
+P,order_reference_number,integer,8,11,"The unique reference number assigned to the order on the book being executed. 
+Effective December 6, 2010, Nasdaq will populate the Order Reference Number field within the Trade (Non-Cross) message as zero. For the binary versions of the TotalView-ITCH data feeds, the field will be null-filled bytes (which encodes sequence of zero)"
+P,buy_sell_indicator,alpha,1,19,"The type of non-display order on the book being matched 
+B = Buy Order 
+S = Sell Order 
+Effective 07/14/2014, this field will always be B regardless of the resting side"
+P,shares,integer,4,20,The number of shares being matched in this execution
+P,stock,alpha,8,24,"Stock Symbol, right padded with spaces"
+P,price,price_4,4,32,The match price of the order. Please refer to Data Types for field processing notes
+P,match_number,integer,8,36,"The Nasdaq generated session unique Match Number for this trade 
+The Match Number is referenced in the Trade Break Message"
+Q,stock_locate,integer,2,1,Locate code identifying the security
+Q,tracking_number,integer,2,3,Nasdaq internal tracking number
+Q,timestamp,integer,6,5,Nanoseconds since midnight.
+Q,shares,integer,8,11,The number of shares matched in the Nasdaq Cross.
+Q,stock,alpha,8,19,"Stock symbol, right padded with spaces"
+Q,cross_price,price_4,4,27,The price at which the cross occurred. Refer to Data Types for field processing notes.
+Q,match_number,integer,8,31,The Nasdaq generated day-unique Match Number of this execution
+Q,cross_type,alpha,1,39,"The Nasdaq cross session for which the message is being generated. 
+O = Nasdaq Opening Cross.     
+C = Nasdaq Closing Cross.     
+H = Cross for IPO and halted / paused securities."
+B,stock_locate,integer,2,1,Locate code identifying the security
+B,tracking_number,integer,2,3,Nasdaq internal tracking number
+B,timestamp,integer,6,5,Nanoseconds since midnight.
+B,match_number,integer,8,11,"The Nasdaq Match Number of the execution that was broken. This refers to a Match Number from a previously transmitted Order Executed Message, Order Executed With Price Message, or Trade Message."
+I,stock_locate,integer,2,1,Locate code identifying the security
+I,tracking_number,integer,2,3,Nasdaq internal tracking number
+I,timestamp,integer,6,5,Nanoseconds since midnight.
+I,paired_shares,integer,8,11,The total number of shares that are eligible to be matched at the Current Reference Price.
+I,imbalance_shares,integer,8,19,The number of shares not paired at the Current Reference Price.
+I,imbalance_direction,alpha,1,27,"The market side of the order imbalance. 
+B = buy imbalance 
+S = sell imbalance 
+N = no imbalance 
+O = Insufficient orders to calculate"
+I,stock,alpha,8,28,"Stock symbol, right padded with spaces"
+I,far_price,price_4,4,36,A hypothetical auction-clearing price for cross orders only. Refer to Data Types for field processing notes.
+I,near_price,price_4,4,40,A hypothetical auction-clearing price for cross orders as well as continuous orders. Refer to Data Types for field
+I,current_reference_price,price_4,4,44,The price at which the NOII shares are being calculated. Refer to Data Types for field processing notes.
+I,cross_type,alpha,1,48,"The type of Nasdaq cross for which the NOII message is being generated 
+O = Nasdaq Opening Cros
+C = Nasdaq Closing Cross 
+H = Cross for IPO and halted / paused securities"
+I,price_variation_indicator,alpha,1,49,"This field indicates the absolute value of the percentage  of deviation of the Near Indicative Clearing Price to the nearest Current Reference Price. L = Less than 1
+1 = 1 to 1.99% 
+2 = 2 to 2.99% 
+3 = 3 to 3.99% 
+4 = 4 to 4.99% 
+5 = 5 to 5.99% 
+6 = 6 to 6.99% 
+7 = 7 to 7.99% 
+8 = 8 to 8.99% 
+9 = 9 to 9.99% 
+A = 10 to 19.99% 
+B = 20 to 29.99% 
+C = 30% or greater 
+<Space> = Cannot be calculated"
