@@ -103,7 +103,14 @@ print('Best Params:\n', pd.Series(gs.best_params_))
 
 dump(gs, 'gs.joblib')
 gs.best_estimator_.model.save('best_model.h5')
+"""
+Best Score: 77.38%
+Best Params:
+ activation          relu
+dense_layers    [64, 64]
+dropout              0.5
 
+"""
 with pd.HDFStore('data.h5') as store:
     store.put('X_train', X_train)
     store.put('X_test', X_test)
