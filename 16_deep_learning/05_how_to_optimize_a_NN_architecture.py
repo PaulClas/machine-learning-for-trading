@@ -9,7 +9,7 @@ import pandas as pd
 from joblib import dump
 
 from sklearn.model_selection import train_test_split, GridSearchCV, StratifiedKFold
-
+from sklearn.metrics import roc_auc_score
 import tensorflow as tf
 from keras.models import Sequential
 from keras.wrappers.scikit_learn import KerasClassifier
@@ -19,8 +19,13 @@ from keras.callbacks import EarlyStopping, TensorBoard
 np.random.seed(42)
 
 data = pd.read_hdf('data.h5', 'returns')
-features, label = data.drop('label', axis=1), data.label
-input_dim = features.shape[1]
+test_data = data['2017':]
+X_train = data[:'2016'].drop('label', axis=1)
+y_train = data[:'2016'].label
+
+del data
+
+input_dim = X_train.shape[1]
 
 
 def auc_roc(y_true, y_pred):
@@ -66,16 +71,43 @@ def make_model(dense_layers, activation, dropout):
     return model
 
 
-test_size, n_splits = .1, 5
-X_train, X_test, y_train, y_test = train_test_split(features, label,
-                                                    test_size=test_size,
-                                                    random_state=42,
-                                                    shuffle=True,
-                                                    stratify=data.label)
-
 clf = KerasClassifier(make_model, epochs=10, batch_size=32)
 
-cv = StratifiedKFold(n_splits=5, shuffle=True)
+
+class OneStepTimeSeriesSplit:
+    """Generates tuples of train_idx, test_idx pairs
+    Assumes the index contains a level labeled 'date'"""
+
+    def __init__(self, n_splits=3, test_period_length=1, shuffle=False):
+        self.n_splits = n_splits
+        self.test_period_length = test_period_length
+        self.shuffle = shuffle
+        self.test_end = n_splits * test_period_length
+
+    @staticmethod
+    def chunks(l, chunk_size):
+        for i in range(0, len(l), chunk_size):
+            yield l[i:i + chunk_size]
+
+    def split(self, X, y=None, groups=None):
+        unique_dates = (X.index
+                            .get_level_values('date')
+                            .unique()
+                            .sort_values(ascending=False)[:self.test_end])
+
+        dates = X.reset_index()[['date']]
+        for test_date in self.chunks(unique_dates, self.test_period_length):
+            train_idx = dates[dates.date < min(test_date)].index
+            test_idx = dates[dates.date.isin(test_date)].index
+            if self.shuffle:
+                np.random.shuffle(list(train_idx))
+            yield train_idx, test_idx
+
+    def get_n_splits(self, X, y, groups=None):
+        return self.n_splits
+
+
+cv = OneStepTimeSeriesSplit(n_splits=12)
 
 param_grid = {'dense_layers': [[32], [32, 32], [64], [64, 64], [64, 64, 32], [64, 32], [128]],
               'activation'  : ['relu', 'tanh'],
@@ -103,6 +135,11 @@ print('Best Params:\n', pd.Series(gs.best_params_))
 
 dump(gs, 'gs.joblib')
 gs.best_estimator_.model.save('best_model.h5')
+pd.DataFrame(gs.cv_results_).to_csv('cv_results.csv', index=False)
+
+y_pred = gs.best_estimator_.model.predict(test_data.drop('label', axis=1))
+print(roc_auc_score(y_true=test_data.label, y_score=y_pred))
+
 """
 Best Score: 77.38%
 Best Params:
@@ -111,8 +148,3 @@ dense_layers    [64, 64]
 dropout              0.5
 
 """
-with pd.HDFStore('data.h5') as store:
-    store.put('X_train', X_train)
-    store.put('X_test', X_test)
-    store.put('y_train', y_train)
-    store.put('y_test', y_test)
