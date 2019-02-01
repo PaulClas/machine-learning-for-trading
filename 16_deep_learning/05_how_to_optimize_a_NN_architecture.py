@@ -139,12 +139,3 @@ pd.DataFrame(gs.cv_results_).to_csv('cv_results.csv', index=False)
 
 y_pred = gs.best_estimator_.model.predict(test_data.drop('label', axis=1))
 print(roc_auc_score(y_true=test_data.label, y_score=y_pred))
-
-"""
-Best Score: 77.38%
-Best Params:
- activation          relu
-dense_layers    [64, 64]
-dropout              0.5
-
-"""

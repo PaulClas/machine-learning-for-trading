@@ -25,8 +25,13 @@
 - [Chainer](https://chainer.org/), developed by the Japanese company Preferred Networks
 - [Torch](http://torch.ch/), uses Lua, basis for PyTorch
 - [Deeplearning4J](https://deeplearning4j.org/), uses Java
+
+### Leveraging GPU Optimization
+- [Which GPU(s) to Get for Deep Learning: My Experience and Advice for Using GPUs in Deep Learning](http://timdettmers.com/2018/11/05/which-gpu-for-deep-learning/), Tim Dettmers
+
 ### How to use Keras
 
+- [A Full Hardware Guide to Deep Learning](http://timdettmers.com/2018/12/16/deep-learning-hardware-guide/), Tim Dettmers
 - [Keras documentation](https://keras.io/)
 
 ### How to use Tensorboard
@@ -41,3 +46,9 @@
     - [AllenNLP](https://allennlp.org/), state-of-the-art NLP platform developed by the Allen Institute for Artificial Intelligence
     - [Flair](https://github.com/zalandoresearch/flair),  simple framework for state-of-the-art NLP developed at Zalando
     - [fst.ai](http://www.fast.ai/), simplifies training NN using modern best practices; offers online training
+
+
+
+    docker run -it -p 8889:8888 -v /home/stefan/projects/machine-learning-for-trading/17_convolutional_neural_nets:/cnn --name tensorflow tensorflow/tensorflow:latest-gpu-py3 bash
+
+    jupyter notebook --ip 0.0.0.0 --no-browser --allow-root
